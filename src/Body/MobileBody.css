@@ -1,12 +1,58 @@
 .MobileBody {
   display: grid;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto auto auto auto;
   width: 100%;
+  font-family:sans-serif;
 }
-.MobileBody section img {
+#image-block {
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: color-dodge;
+}
+.overlay {
+  background: hsla(2, 10%, 50%, 0.5);
   width: 500px;
   height: 500px;
 }
-.title h1 {
-  font-size: 50px;
+#image-block img {
+  width: 500px;
+  height: 500px;
+}
+.MobileBody section {
+  padding: 20px;
+  letter-spacing: 2px;
+}
+.MobileBody section h1 {
+  font-size: 3.5em;
+  text-shadow: grey 0px 4px;
+  color: white;
+}
+.MobileBody section h2 {
+  font-size: 3.5em;
+  text-shadow: grey 0px 4px;
+}
+.MobileBody section p {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 1.5em;
+}
+.MobileBody section button {
+  padding: 10px;
+  width: 30%;
+  min-width: 100px;
+  max-width: 250px;
+  height: 50px;
+  font-size: 1em;
+  margin: 10px;
+}
+.MobileBody section:nth-child(even) {
+  background: #C6DE75;
+}
+.MobileBody section:nth-child(odd) {
+  background: gainsboro;
+}
+.block h1 {
+  font-size: 40px;
 }
