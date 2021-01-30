@@ -18,4 +18,13 @@
 [x] Set up react production patters
     [x] delete boilerplate
     [x] move index.css to public, clean html and other files. 
-[] In App.tsx, begin planning build
+[x] In App.tsx, begin planning build
+    [x] Template a home component for home page
+    [x] Template navbar component for header
+    [x] Template body component for home
+[x] Create Home page component
+    [x] import navbar and body
+[x] create navbar component
+    [x] use flexbox on Navabar wrapper, center section
+    [x] use grid on section, auto auto, seperates links
+    [x] color background, set margins, size for mobile first.

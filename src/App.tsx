@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Home from './Home/Home';
 
 interface AppProps {}
 
@@ -8,7 +8,7 @@ function App({}: AppProps) {
 
   return (
     <div className="App">
-      
+      <Home />
     </div>
   );
 }
