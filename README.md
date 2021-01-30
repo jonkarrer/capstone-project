@@ -1,25 +1,21 @@
-# New Project
+#My Meal Prep Company
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
-
-## Available Scripts
-
-### npm start
-
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
-
-The page will reload if you make edits.
-You will also see any lint errors in the console.
-
-### npm run build
-
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
-
-**For the best production performance:** Add a build bundler plugin like "@snowpack/plugin-webpack" to your `snowpack.config.js` config file.
-
-### npm test
-
-Launches the application test runner.
-Run with the `--watch` flag (`npm test -- --watch`) to run in interactive watch mode.
+[x] Create react with snopack development. 
+    [x] install snowpack with typescript template
+    [x] set git repo
+    [x] install gh-pages plugin
+      [x] add "homepage": "http://jonkarrer.github.io/capstone-project",in package.json
+      [x] add  "scripts": {
+          "predeploy": "npx snowpack build",
+          "deploy": "gh-pages -d build",
+      [x]  in snowpack config, build options, 
+            add baseUrl: '/capstone-project'.
+    [x] install webpack plugin
+      [x] npm install --save-dev @snowpack/plugin-webpack
+      [x] in snowpack-config, add '@snowpack/plugin-webpack' to plugins
+    [x] Double check all dependencies are there. 
+    [x] use "npm run deploy" to push project to gh-pages for test.
+[x] Set up react production patters
+    [x] delete boilerplate
+    [x] move index.css to public, clean html and other files. 
+[] In App.tsx, begin planning build
