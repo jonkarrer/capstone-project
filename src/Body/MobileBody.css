@@ -1,0 +1,12 @@
+.MobileBody {
+  display: grid;
+  grid-template-rows: auto auto;
+  width: 100%;
+}
+.MobileBody section img {
+  width: 500px;
+  height: 500px;
+}
+.title h1 {
+  font-size: 50px;
+}
