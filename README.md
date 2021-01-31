@@ -41,4 +41,9 @@
 [x] instal react-router-dom
 [x] make story page and set up routes with router
     [] change the navbar to include a home button when not on home page. 
-[] make order page, and make it functional
+[x] re installed react dom with npm install --save because its differemt. Had to remove it from devDependent in package.json so snowpack would work?
+[x] make order page design
+    [x] simple grid and flexbox work. Made the foot a shopping cart similar to the navbar set up. Will stay fixed no move. So i need to add functionality to the dropdown arrows, and add things to the cart. 
+[x] add order page funtionality
+    [] starting with the dropdown arrows, i need to render in a component with a picture and a discription and a price. So i will try to make a "MenuItem" component that takes props.
+    depending on the props, i need to render said props into this component. Tie the specific dropdown click to the specific prop addition. 
