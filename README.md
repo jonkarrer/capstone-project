@@ -28,3 +28,12 @@
     [x] use flexbox on Navabar wrapper, center section
     [x] use grid on section, auto auto, seperates links
     [x] color background, set margins, size for mobile first.
+    [x] add scroll up disapear effect
+        [x] bring in useState, useEffect. set 2 states, the state of the 
+            current windowY position, 0, and the current navebar position
+            '0'.
+        [x] set a reactive style onto .Navbar with 
+            style={{top: ${useStateNavbarVariable}}}. 
+        [x] put a window.scroll event into the useEffect hook. Compare 
+            the previous postion to the current one, assign the navbar
+            state hook accordingly. 

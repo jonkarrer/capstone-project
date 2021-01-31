@@ -1,7 +1,7 @@
 import React from 'react'
 import './MobileBody.css';
 import logo from './logo.png'
-import background from './background3.jpg';
+import background from './background.jpg';
 export default function MobileBody() {
   return (
     <div className="MobileBody">
@@ -40,29 +40,18 @@ export default function MobileBody() {
       </section>
       <section>
         <div className="block">
-          <h1>My</h1>
-          <h2>Story</h2>
+          <h1>You</h1>
+          <h2>Matter</h2>
           <p>
-          Looking down at the scale in 2015 I remember thinking, 
-          "I am too damn big". I had been "big" and trying to lose 
-          weight since 2010. The mirror was always there to remind me, too. 
-          Nothing wrong with being who I am, however, I knew the consequences 
-          of being large. I had all the motivation to drop the fat 
-          but none of the knowledge or support to achieve the goals. 
-          That's when I discovered "meal prep". Fresh food meticulously 
-          cooked and weighed every Sunday to meet my macros. I made myself 
-          pre portioned food for 6 months and the results were evident. 
-          50 pounds of fat gone and 12 pounds of lean mass gained. Success! 
-          Today I have lost even more by fasting and eating plant based. 
-          Sadly, when I looked for a company to buy local meal prep from the 
-          choices were overpriced, tiny portioned, and lacked flavor. 
-          It was nothing like the food I was making. I wanted meal prep 
-          to be accessible, delicious, and portioned correctly. 
-          I created Feed The Beast. I wear my art on my sleeve. 
-          I have made a several changes over the years to reflect how 
-          I have matured as a chef, diet enthusiast, and business owner. 
-          Hope you enjoy our new plant based and farm to table direction 
-          with Nu Leaf! 
+          This is not your typical cookie cutter, 
+          tiny portion, flavorless meal prep. 
+          Your food is cooked by experienced chefs 
+          that use local ingredients. We offer low-sodium, 
+          low glycemic, vegan, paleo, and gluten free foods. 
+          We make healthy food taste good again and not cost a fortune. 
+          All of our food is whole, from farm to plate, with very 
+          little processing. Enjoy the best meal prep available by 
+          ordering above!
           </p>
         </div>
       </section>

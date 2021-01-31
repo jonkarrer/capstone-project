@@ -5,9 +5,11 @@ import './Home.css';
 
 export default function Home() {
   return (
-    <div>
-      <Navbar />
+    <div className="Home">
+      <React.Fragment>
+      <Navbar/>
       <MobileBody />
+      </React.Fragment>
     </div>
   )
 }

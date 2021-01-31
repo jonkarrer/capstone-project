@@ -1,7 +1,7 @@
 .MobileBody {
   display: grid;
   grid-template-rows: auto auto auto auto;
-  width: 100%;
+  width: 100vw;
   font-family:sans-serif;
 }
 #image-block {
@@ -11,12 +11,12 @@
 }
 .overlay {
   background: hsla(2, 10%, 50%, 0.5);
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
 }
 #image-block img {
-  width: 500px;
-  height: 500px;
+ width: 100%;
+ height: auto;
 }
 .MobileBody section {
   padding: 20px;
@@ -37,6 +37,7 @@
   margin: 0 auto;
   padding: 20px;
   font-size: 1.5em;
+  font-weight: 300;
 }
 .MobileBody section button {
   padding: 10px;
