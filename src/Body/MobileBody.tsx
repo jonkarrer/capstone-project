@@ -2,6 +2,7 @@ import React from 'react'
 import './MobileBody.css';
 import logo from './logo.png'
 import background from './background.jpg';
+
 export default function MobileBody() {
   return (
     <div className="MobileBody">

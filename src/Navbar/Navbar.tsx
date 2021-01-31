@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
+import { Link, withRouter } from "react-router-dom";
 import './Navbar.css';
-export default function Navbar() {
+
+function Navbar() {
   const [navbarPosition, setNavbar] = useState('0');
   const [scrollPosition, setPosition] = useState(0);
   useEffect(() => {
@@ -20,11 +22,12 @@ export default function Navbar() {
     <React.Fragment>
     <div className="NavBar" style={{top:`${navbarPosition}`}}>
       <section className="links">
-        <div className="Order"><h1><a>Order</a></h1></div>
-        <div className="faq"><h1><a>Story</a></h1></div>
-        <div className="faq"><h1><a>FAQs</a></h1></div>
+        <Link className="Order" to="/"><h1>Order</h1></Link>
+        <Link className="faq" to="/story"><h1>Story</h1></Link>
+        <Link className="faq" to="FAQs"><h1>FAQs</h1></Link>
       </section>
     </div>
     </React.Fragment>
   )
 }
+export default withRouter(Navbar);

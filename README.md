@@ -36,4 +36,7 @@
             style={{top: ${useStateNavbarVariable}}}. 
         [x] put a window.scroll event into the useEffect hook. Compare 
             the previous postion to the current one, assign the navbar
-            state hook accordingly. 
+            state hook accordingly. Make sure to remove listerner, and use the array [] at the end of use effect. Could maybe make a custom hook here;
+[x] create homepage
+[x] instal react-router-dom
+[x] make story page and set up routes
