@@ -4,7 +4,7 @@
   width: 100vw;
   font-family:sans-serif;
 }
-#image-block {
+.Story #image-block {
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: center;
 }
-.overlay {
+.Story .overlay {
   background: hsla(2, 10%, 50%, 0.5);
   width: 50%;
   height: 50%;
