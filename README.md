@@ -39,4 +39,6 @@
             state hook accordingly. Make sure to remove listerner, and use the array [] at the end of use effect. Could maybe make a custom hook here;
 [x] create homepage
 [x] instal react-router-dom
-[x] make story page and set up routes
+[x] make story page and set up routes with router
+    [] change the navbar to include a home button when not on home page. 
+[] make order page, and make it functional

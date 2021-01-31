@@ -1,0 +1,54 @@
+.Order {
+  height: auto;;
+  width: 100vw;
+  margin-top: 78px;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  font-family: sans-serif;
+}
+.Order section {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.Order .food-menu {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  border: red solid thin;
+}
+.Order .catagory-block {
+  display: flex;
+  border-bottom: gainsboro solid 2px;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.Order .catagory-title {
+  text-align: left;
+  margin-left: 10px;
+}
+.Order .catagory-button {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  margin-right: 10px;
+  font-size: 20px;
+}
+.MobileCart {
+  background-color: #728A45;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 80px;
+  position: fixed;
+  bottom: 0;
+  transition: top .3s;
+}
+.MobileCart section {
+  background: #ECE7D9;
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+}
