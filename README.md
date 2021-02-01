@@ -49,5 +49,6 @@
     [x] first i made a data structure in menuDataBase.ts. Imported that into order.tsx. The database holds all menus, descriptions, titles and prices. 
     [x] build a MenuItem component in order.tsx. created 3 props to pass. 
     [x] with a map function, i render multiple Menuitem components into the dom. I pass the database info as props. 
-    [x] made an onclick function that runs the map function.
+    [x] made an onclick function that runs the map function. created a map function and useState hook for each menu catagory
+[] add click event to menu items. should make a component pop up.
 
