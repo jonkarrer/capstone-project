@@ -40,7 +40,7 @@
   margin-right: 10px;
   font-size: 20px;
 }
-.Order .catagory-button:hover {
+.Order #dropdown-button:hover {
   cursor: pointer;
   color: greenyellow;
 }

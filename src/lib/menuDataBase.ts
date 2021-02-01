@@ -16,6 +16,23 @@ const menuDataBase = {
         description: "3 scrambles eggs with salt and pepper, and 3 fluffy whole grain pancakes.", 
         price: "$8"
       }
+    ],
+    vegan: [
+      {
+        name: "Cauliflower Osso Buco", 
+        description: "French classic filled with vegetables. Cauliflower, potatoes, carrots, onions, and garlic braised in a white wine reduction.", 
+        price: "$8"
+      },
+      {
+        name: "Red Bean Jambalaya", 
+        description: "Traditional cajun staple filled with red beans instead of meat", 
+        price: "$8"
+      },
+      {
+        name: "Lentil Dahl", 
+        description: "Fresh vegetables and green lentils reduced to a thick stew. Seasoned with herbs, fresh ginger, and served over rice.", 
+        price: "$8"
+      }
     ]
   }
 }

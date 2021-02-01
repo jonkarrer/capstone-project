@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './Order.css';
 import menuDataBase from '../lib/menuDataBase';
 
@@ -7,7 +7,30 @@ const firstMenu = menuDataBase["menuOne"];
 
 
 export default function Order() {
-  console.log(firstMenu.breakfast.length);
+  const [breakfastButton, setBreakfast] = useState(false);
+  const [veganButton, setVegan] = useState(false);
+  const renderBreakfastItems = () => {
+    if (breakfastButton === true) {
+      return (
+        <React.Fragment>
+        {firstMenu.breakfast.map((object) => <MenuItem itemName={object.name} itemDescription={object.description} itemPrice={object.price}/>)}
+        </React.Fragment>
+      );
+    } else {
+      return <React.Fragment></React.Fragment>
+    }
+  }
+  const renderVeganItems = () => {
+    if (veganButton === true) {
+      return (
+        <React.Fragment>
+        {firstMenu.vegan.map((object) => <MenuItem itemName={object.name} itemDescription={object.description} itemPrice={object.price}/>)}
+        </React.Fragment>
+      );
+    } else {
+      return <React.Fragment></React.Fragment>
+    }
+  }
   return (
     <div className="Order">
       <section>
@@ -20,21 +43,24 @@ export default function Order() {
             <p>Save the time for coffee.</p>
           </div>
           <div className="catagory-button">
-            <div id="dropdown-button">V</div>
+            <div id="dropdown-button" onClick={() => setBreakfast(!breakfastButton)}>V</div>
           </div>
        </div>
-        <React.Fragment>
-          {firstMenu.breakfast.map((object) => <MenuItem itemName={object.name} itemDescription={object.description} itemPrice={object.price}/>)}
-        </React.Fragment>
+        
+          {renderBreakfastItems()}
+
        <div className="catagory-block">
           <div className="catagory-title">
             <h1>Vegan</h1><br/>
             <p>Life starts with plants.</p>
           </div>
           <div className="catagory-button">
-            <div id="dropdown-button">V</div>
+            <div id="dropdown-button" onClick={() => setVegan(!veganButton)}>V</div>
           </div>
        </div>
+
+          {renderVeganItems()}
+
        <div className="catagory-block">
           <div className="catagory-title">
             <h1>Low-Glycemic/Paleo</h1><br/>
