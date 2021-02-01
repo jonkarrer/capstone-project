@@ -1,12 +1,17 @@
 import React from 'react'
 import './Order.css';
+import menuDataBase from '../lib/menuDataBase';
+
+const firstMenu = menuDataBase["menuOne"];
+
 
 
 export default function Order() {
+  console.log(firstMenu.breakfast.length);
   return (
     <div className="Order">
       <section>
-        <h1>This Weeks Menu</h1>
+        <h1 id="heading">This Weeks Menu</h1>
       </section>
       <section className="food-menu">
         <div className="catagory-block">
@@ -18,10 +23,9 @@ export default function Order() {
             <div id="dropdown-button">V</div>
           </div>
        </div>
-       <MenuItem 
-       itemName="Steak and Eggs" 
-       itemDescription="Charbroiled flank steak and scrambled eggs. Topped with
-roasted bell peppers." itemPrice="$11"/>
+        <React.Fragment>
+          {firstMenu.breakfast.map((object) => <MenuItem itemName={object.name} itemDescription={object.description} itemPrice={object.price}/>)}
+        </React.Fragment>
        <div className="catagory-block">
           <div className="catagory-title">
             <h1>Vegan</h1><br/>
@@ -81,6 +85,7 @@ interface MenuProps {
 }
 function MenuItem({itemName, itemDescription, itemPrice}: MenuProps) {
   return (
+    <div className="MenuItem">
       <div className="catagory-block">
         <div className="catagory-title">
           <h1>{itemName}</h1><br/>
@@ -92,5 +97,6 @@ function MenuItem({itemName, itemDescription, itemPrice}: MenuProps) {
           <div id="price">{itemPrice}</div>
           </div>
       </div>
+    </div>
   )
 }

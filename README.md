@@ -45,5 +45,9 @@
 [x] make order page design
     [x] simple grid and flexbox work. Made the foot a shopping cart similar to the navbar set up. Will stay fixed no move. So i need to add functionality to the dropdown arrows, and add things to the cart. 
 [x] add order page funtionality
-    [] starting with the dropdown arrows, i need to render in a component with a picture and a discription and a price. So i will try to make a "MenuItem" component that takes props.
-    depending on the props, i need to render said props into this component. Tie the specific dropdown click to the specific prop addition. 
+    [x] starting with the dropdown arrows, i need to render in a component with a picture and a discription and a price.
+    [x] first i made a data structure in menuDataBase.ts. Imported that into order.tsx. The database holds all menus, descriptions, titles and prices. 
+    [x] build a MenuItem component in order.tsx. created 3 props to pass. 
+    [x] with a map function, i render multiple Menuitem components into the dom. I pass the database info as props. 
+    [x] made an onclick function that runs the map function.
+

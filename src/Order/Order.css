@@ -1,10 +1,14 @@
 .Order {
-  height: auto;;
+  height: auto;
   width: 100vw;
   margin-top: 78px;
+  padding-bottom: 78px;
   display: grid;
   grid-template-rows: auto auto auto;
   font-family: sans-serif;
+}
+#heading{
+  color: black;
 }
 .Order section {
   padding-top: 20px;
@@ -16,15 +20,18 @@
   border: red solid thin;
 }
 .Order .catagory-block {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   border-bottom: gainsboro solid 2px;
-  justify-content: space-between;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 .Order .catagory-title {
   text-align: left;
-  margin-left: 10px;
+  margin-left: 15px;
+}
+.Order h1 {
+  color: #728A45;
 }
 .Order .catagory-button {
   display: flex;
@@ -63,6 +70,12 @@
   font-size: 25px;
   font-family: sans-serif;
 }
-.MenuItem {
-  
+.MenuItem h1 {
+  color: black;
+  font-size: 1.2em;
+  font-weight: 100;
+  margin-left: 30px;
+}
+.MenuItem p {
+  margin-left: 30px;
 }
