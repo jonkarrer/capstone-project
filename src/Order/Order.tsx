@@ -9,6 +9,8 @@ const firstMenu = menuDataBase["menuOne"];
 export default function Order() {
   const [breakfastButton, setBreakfast] = useState(false);
   const [veganButton, setVegan] = useState(false);
+  const [paleoButton, setPaleo] = useState(false);
+  const [bulkButton, setBulk] = useState(false);
   const renderBreakfastItems = () => {
     if (breakfastButton === true) {
       return (
@@ -31,6 +33,28 @@ export default function Order() {
       return <React.Fragment></React.Fragment>
     }
   }
+  const renderPaleoItems = () => {
+    if (paleoButton === true) {
+      return (
+        <React.Fragment>
+        {firstMenu.paleo.map((object) => <MenuItem itemName={object.name} itemDescription={object.description} itemPrice={object.price}/>)}
+        </React.Fragment>
+      );
+    } else {
+      return <React.Fragment></React.Fragment>
+    }
+  }
+  const renderBulkItems = () => {
+    if (bulkButton === true) {
+      return (
+        <React.Fragment>
+        {firstMenu.bulk.map((object) => <MenuItem itemName={object.name} itemDescription={object.description} itemPrice={object.price}/>)}
+        </React.Fragment>
+      );
+    } else {
+      return <React.Fragment></React.Fragment>
+    }
+  }
   return (
     <div className="Order">
       <section>
@@ -47,7 +71,7 @@ export default function Order() {
           </div>
        </div>
         
-          {renderBreakfastItems()}
+        {renderBreakfastItems()}
 
        <div className="catagory-block">
           <div className="catagory-title">
@@ -59,7 +83,7 @@ export default function Order() {
           </div>
        </div>
 
-          {renderVeganItems()}
+        {renderVeganItems()}
 
        <div className="catagory-block">
           <div className="catagory-title">
@@ -67,18 +91,22 @@ export default function Order() {
             <p>Fuel the body with what it needs.</p>
           </div>
           <div className="catagory-button">
-            <div id="dropdown-button">V</div>
+            <div id="dropdown-button" onClick={() => setPaleo(!paleoButton)}>V</div>
           </div>
        </div>
+        
+        {renderPaleoItems()}
+
        <div className="catagory-block">
           <div className="catagory-title">
             <h1>Buy in Bulk</h1><br/>
             <p>Pounds of select items</p>
           </div>
           <div className="catagory-button">
-            <div id="dropdown-button">V</div>
+            <div id="dropdown-button" onClick={() => setBulk(!bulkButton)}>V</div>
           </div>
        </div>
+       {renderBulkItems()}
       </section>
       <MobileCart/>
     </div>

@@ -9,6 +9,8 @@
 }
 #heading{
   color: black;
+  padding-bottom: 10px;
+  border-bottom: #C6DE75 solid thick;
 }
 .Order section {
   padding-top: 20px;
@@ -17,7 +19,6 @@
 .Order .food-menu {
   display: grid;
   grid-template-rows: auto auto auto auto;
-  border: red solid thin;
 }
 .Order .catagory-block {
   display: grid;
