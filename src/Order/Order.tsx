@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './Order.css';
 import menuDataBase from '../lib/menuDataBase';
-
+import pic from '../assets/steak&eggs.jpg';
 const firstMenu = menuDataBase["menuOne"];
 
 
@@ -15,7 +15,7 @@ export default function Order() {
     if (breakfastButton === true) {
       return (
         <React.Fragment>
-        {firstMenu.breakfast.map((object) => <MenuItem itemName={object.name} itemDescription={object.description} itemPrice={object.price}/>)}
+        {firstMenu.breakfast.map((object) => <MenuItem itemName={object.name} itemDescription={object.description} itemPrice={object.price} itemPicture={object.picture}/>)}
         </React.Fragment>
       );
     } else {
@@ -26,7 +26,7 @@ export default function Order() {
     if (veganButton === true) {
       return (
         <React.Fragment>
-        {firstMenu.vegan.map((object) => <MenuItem itemName={object.name} itemDescription={object.description} itemPrice={object.price}/>)}
+        {firstMenu.vegan.map((object) => <MenuItem itemName={object.name} itemDescription={object.description} itemPrice={object.price} itemPicture={object.picture}/>)}
         </React.Fragment>
       );
     } else {
@@ -37,7 +37,7 @@ export default function Order() {
     if (paleoButton === true) {
       return (
         <React.Fragment>
-        {firstMenu.paleo.map((object) => <MenuItem itemName={object.name} itemDescription={object.description} itemPrice={object.price}/>)}
+        {firstMenu.paleo.map((object) => <MenuItem itemName={object.name} itemDescription={object.description} itemPrice={object.price} itemPicture={object.picture}/>)}
         </React.Fragment>
       );
     } else {
@@ -48,7 +48,7 @@ export default function Order() {
     if (bulkButton === true) {
       return (
         <React.Fragment>
-        {firstMenu.bulk.map((object) => <MenuItem itemName={object.name} itemDescription={object.description} itemPrice={object.price}/>)}
+        {firstMenu.bulk.map((object) => <MenuItem itemName={object.name} itemDescription={object.description} itemPrice={object.price} itemPicture={object.picture}/>)}
         </React.Fragment>
       );
     } else {
@@ -138,14 +138,15 @@ interface MenuProps {
   itemName: string;
   itemDescription: string;
   itemPrice: string;
+  itemPicture: any;
 }
-function MenuItem({itemName, itemDescription, itemPrice}: MenuProps) {
+function MenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps) {
   const [expandItemButton, setMenuItem] = useState(false);
   const renderItemPopUp = () => {
     if (expandItemButton === true) {
       console.log('heyyy');
       return(
-      <ExpandMenuItem itemName={itemName} itemDescription={itemDescription} itemPrice={itemDescription}/>
+      <ExpandMenuItem itemName={itemName} itemDescription={itemDescription} itemPrice={itemPrice} itemPicture={itemPicture}/>
       )
     } else {
       return
@@ -168,10 +169,15 @@ function MenuItem({itemName, itemDescription, itemPrice}: MenuProps) {
     </div>
   )
 }
-function ExpandMenuItem({itemName, itemDescription, itemPrice}: MenuProps) {
+function ExpandMenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps) {
   return (
     <div className="ExpandMenuItem">
-      {itemName},{itemPrice}, {itemDescription}
+      <div className="item-picture" style={{backgroundImage:`url(${itemPicture})`}}></div>
+      <div className="item-name">{itemName} {itemPrice}</div>
+      <div className="item-description">{itemDescription}</div>
+      <div className="item-cart">
+        + or minus
+      </div>
     </div>
   )
 }
