@@ -8,7 +8,7 @@ function Navbar() {
   useEffect(() => {
     const onScroll = () => {
       const currentPosition = window.pageYOffset;
-      if (scrollPosition > currentPosition) {
+      if (scrollPosition > currentPosition || scrollPosition < 10) {
         setNavbar('0');
       } else {
         setNavbar('-100px');

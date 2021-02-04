@@ -50,5 +50,6 @@
     [x] build a MenuItem component in order.tsx. created 3 props to pass. 
     [x] with a map function, i render multiple Menuitem components into the dom. I pass the database info as props. 
     [x] made an onclick function that runs the map function. created a map function and useState hook for each menu catagory
-[] add click event to menu items. should make a component pop up.
+[x] add click event to menu items. should make a component pop up.
+    [x] making a absolute position component called expandmenuitem. This will be hidden until the click function is called. The menu item will pass its info to this component and display inside of box.
 

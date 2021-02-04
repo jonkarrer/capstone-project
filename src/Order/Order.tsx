@@ -56,9 +56,7 @@ export default function Order() {
     }
   }
   return (
-    
     <div className="Order">
-       <ExpandMenuItem/>
       <section>
         <h1 id="heading">This Weeks Menu</h1>
       </section>
@@ -142,9 +140,21 @@ interface MenuProps {
   itemPrice: string;
 }
 function MenuItem({itemName, itemDescription, itemPrice}: MenuProps) {
+  const [expandItemButton, setMenuItem] = useState(false);
+  const renderItemPopUp = () => {
+    if (expandItemButton === true) {
+      console.log('heyyy');
+      return(
+      <ExpandMenuItem itemName={itemName} itemDescription={itemDescription} itemPrice={itemDescription}/>
+      )
+    } else {
+      return
+    }
+  }
   return (
-    <div className="MenuItem" >
+    <div className="MenuItem" onClick={() => setMenuItem(!expandItemButton)}>
       <div className="catagory-block">
+        {renderItemPopUp()}
         <div className="catagory-title">
           <h1>{itemName}</h1><br/>
           <p>
@@ -158,10 +168,10 @@ function MenuItem({itemName, itemDescription, itemPrice}: MenuProps) {
     </div>
   )
 }
-function ExpandMenuItem() {
+function ExpandMenuItem({itemName, itemDescription, itemPrice}: MenuProps) {
   return (
     <div className="ExpandMenuItem">
-      Hello
+      {itemName},{itemPrice}, {itemDescription}
     </div>
   )
 }
