@@ -61,49 +61,49 @@ export default function Order() {
         <h1 id="heading">This Weeks Menu</h1>
       </section>
       <section className="food-menu">
-        <div className="catagory-block">
+        <div className="catagory-block" onClick={() => setBreakfast(!breakfastButton)}>
           <div className="catagory-title">
             <h1>Breakfast</h1><br/>
             <p>Save the time for coffee.</p>
           </div>
           <div className="catagory-button">
-            <div id="dropdown-button" onClick={() => setBreakfast(!breakfastButton)}>V</div>
+            <div id="dropdown-button">V</div>
           </div>
        </div>
         
         {renderBreakfastItems()}
 
-       <div className="catagory-block">
+       <div className="catagory-block" onClick={() => setVegan(!veganButton)}>
           <div className="catagory-title">
             <h1>Vegan</h1><br/>
             <p>Life starts with plants.</p>
           </div>
           <div className="catagory-button">
-            <div id="dropdown-button" onClick={() => setVegan(!veganButton)}>V</div>
+            <div id="dropdown-button">V</div>
           </div>
        </div>
 
         {renderVeganItems()}
 
-       <div className="catagory-block">
+       <div className="catagory-block" onClick={() => setPaleo(!paleoButton)}>
           <div className="catagory-title">
             <h1>Low-Glycemic/Paleo</h1><br/>
             <p>Fuel the body with what it needs.</p>
           </div>
           <div className="catagory-button">
-            <div id="dropdown-button" onClick={() => setPaleo(!paleoButton)}>V</div>
+            <div id="dropdown-button" >V</div>
           </div>
        </div>
         
         {renderPaleoItems()}
 
-       <div className="catagory-block">
+       <div className="catagory-block" onClick={() => setBulk(!bulkButton)}>
           <div className="catagory-title">
             <h1>Buy in Bulk</h1><br/>
             <p>Pounds of select items</p>
           </div>
           <div className="catagory-button">
-            <div id="dropdown-button" onClick={() => setBulk(!bulkButton)}>V</div>
+            <div id="dropdown-button">V</div>
           </div>
        </div>
 
