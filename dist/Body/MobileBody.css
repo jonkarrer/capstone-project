@@ -1,0 +1,63 @@
+.MobileBody {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  width: 100vw;
+  font-family:sans-serif;
+}
+#image-block {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-blend-mode: color-dodge;
+}
+.overlay {
+  background: hsla(2, 10%, 50%, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#image-block img {
+ width: 100%;
+ height: auto;
+}
+.MobileBody section {
+  padding: 20px;
+  letter-spacing: 2px;
+}
+.MobileBody section h1 {
+  font-size: 3.5em;
+  text-shadow: grey 0px 4px;
+  color: white;
+}
+.MobileBody section h2 {
+  font-size: 3.5em;
+  text-shadow: grey 0px 4px;
+}
+.MobileBody section p {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+.MobileBody section button {
+  padding: 10px;
+  width: 30%;
+  min-width: 100px;
+  max-width: 250px;
+  height: 50px;
+  font-size: 1em;
+  margin: 10px;
+}
+.MobileBody section:nth-child(even) {
+  background: #C6DE75;
+}
+.MobileBody section:nth-child(odd) {
+  background: gainsboro;
+}
+.block h1 {
+  font-size: 40px;
+}

@@ -1,0 +1,20 @@
+.NavBar {
+  background-color: #728A45;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  transition: top .3s;
+}
+.NavBar section {
+  background: #ECE7D9;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  border-radius: 2rem;
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+}
