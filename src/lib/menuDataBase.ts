@@ -71,37 +71,37 @@ const menuDataBase = {
         name: "Bulk Shrimp", 
         description: "One Order = 1 pound", 
         price: "$16",
-        picture: '/assets/'
+        picture: '/assets/shrimpbulk.jpg'
       },
       {
         name: "Bulk Broccoli", 
         description: "One Order = 1 pound", 
         price: "$5",
-        picture: '/assets/'
+        picture: '/assets/broc.jpg'
       },
       {
         name: "Bulk Green Beans", 
         description: "One Order = 1 pound", 
         price: "$5",
-        picture: '/assets/'
+        picture: '/assets/gb.jpg'
       },
       {
         name: "Bulk Red Potato", 
         description: "One Order = 1 pound", 
         price: "$5",
-        picture: '/assets/'
+        picture: '/assets/redpot.jpg'
       },
       {
         name: "Bulk Rice", 
         description: "One Order = 1 pound", 
         price: "$5",
-        picture: '/assets/'
+        picture: '/assets/rice.jpg'
       },
       {
         name: "Bulk Pasta", 
         description: "One Order = 1 pound", 
         price: "$5",
-        picture: '/assets/'
+        picture: '/assets/pasta.jpg'
       }
     ]
   }
