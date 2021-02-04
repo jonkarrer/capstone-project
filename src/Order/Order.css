@@ -90,23 +90,73 @@
   margin-left: 30px;
 }
 .ExpandMenuItem {
-  z-index: 10;
-  height: 70%;
+  border-radius: .5rem;
+  z-index: 3;
+  height: 75%;
   width: 80%;
   max-width: 600px;
-  background-color: rebeccapurple;
+  background-color: #C6DE75;
   position: fixed;
   right: 0;
   left: 0;
   top: 80px;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
   display: grid;
+  grid-template-rows: 40vh 50px auto auto 60px;
 }
 .ExpandMenuItem .item-picture {
-  height: 50vh;
+  max-height: 500px;
   width: 100%;
   background-size: cover;
   background-position: center;
+  border-radius: .5rem;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.ExpandMenuItem .item-name {
+  width: 100%;
+  border-bottom: white solid thin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ExpandMenuItem .item-description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.ExpandMenuItem .item-cart {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item-cart .number-counter {
+  font-size: 1.6rem;
+  background-color: white;
+  padding: 5px;
+}
+.item-cart .minus-butt {
+  padding: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.item-cart .plus-butt {
+  padding: 20px;
+  font-size: 40px;
+}
+.ExpandMenuItem .add-to-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ECE7D9;
+}
+.item-name h2, .add-to-cart h2 {
+  font-weight: bold;
+}
+.item-description span {
+  font-size: 1rem;
+  margin: 5px;
 }

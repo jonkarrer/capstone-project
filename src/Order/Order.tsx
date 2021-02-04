@@ -153,10 +153,10 @@ function MenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps
     }
   }
   return (
-    <div className="MenuItem" onClick={() => setMenuItem(!expandItemButton)}>
+    <div className="MenuItem" >
       <div className="catagory-block">
         {renderItemPopUp()}
-        <div className="catagory-title">
+        <div className="catagory-title" onClick={() => setMenuItem(!expandItemButton)}>
           <h1>{itemName}</h1><br/>
           <p>
             {itemDescription}
@@ -170,14 +170,18 @@ function MenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps
   )
 }
 function ExpandMenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps) {
+  const [orderCounter, setCounter] = useState(0);
   return (
     <div className="ExpandMenuItem">
       <div className="item-picture" style={{backgroundImage:`url(${itemPicture})`}}></div>
-      <div className="item-name">{itemName} {itemPrice}</div>
-      <div className="item-description">{itemDescription}</div>
+      <div className="item-name"><h2>{itemName} {itemPrice}</h2></div>
+      <div className="item-description"><span>{itemDescription}</span></div>
       <div className="item-cart">
-        + or minus
+        <div className="minus-butt" onClick={() => setCounter(orderCounter - 1)}>⏤</div>
+        <div className="number-counter">{orderCounter}</div>
+        <div className="plus-butt" onClick={() => setCounter(orderCounter + 1)}>+</div>
       </div>
+      <div className="add-to-cart"><h2>Add to Cart</h2></div>
     </div>
   )
 }
