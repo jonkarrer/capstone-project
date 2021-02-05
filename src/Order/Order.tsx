@@ -1,10 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Children} from 'react'
 import './Order.css';
 import menuDataBase from '../lib/menuDataBase';
 import pic from '../assets/steak&eggs.jpg';
 const firstMenu = menuDataBase["menuOne"];
-
-
 
 export default function Order() {
   const [breakfastButton, setBreakfast] = useState(false);
@@ -91,7 +89,7 @@ export default function Order() {
             <p>Fuel the body with what it needs.</p>
           </div>
           <div className="catagory-button">
-            <div id="dropdown-button" >V</div>
+            <div id="dropdown-button">V</div>
           </div>
        </div>
         
@@ -146,7 +144,7 @@ function MenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps
     if (expandItemButton === true) {
       console.log('heyyy');
       return(
-      <ExpandMenuItem itemName={itemName} itemDescription={itemDescription} itemPrice={itemPrice} itemPicture={itemPicture}/>
+      <ExpandMenuItem children={<div className="close-this-item" onClick={() => setMenuItem(false)}>X</div>} itemName={itemName} itemDescription={itemDescription} itemPrice={itemPrice} itemPicture={itemPicture}/>
       )
     } else {
       return
@@ -169,11 +167,13 @@ function MenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps
     </div>
   )
 }
-function ExpandMenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps) {
+const ExpandMenuItem: React.FC<MenuProps>= ({itemName, itemDescription, itemPrice, itemPicture, children}) => {
   const [orderCounter, setCounter] = useState(0);
   return (
     <div className="ExpandMenuItem">
-      <div className="item-picture" style={{backgroundImage:`url(${itemPicture})`}}></div>
+      {children}
+      <div className="item-picture" style={{backgroundImage:`url(${itemPicture})`}}>
+      </div>
       <div className="item-name"><h2>{itemName} {itemPrice}</h2></div>
       <div className="item-description"><span>{itemDescription}</span></div>
       <div className="item-cart">

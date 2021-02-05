@@ -153,6 +153,14 @@
   justify-content: center;
   background: #ECE7D9;
 }
+.close-this-item {
+  color: red;
+  position: absolute;
+  background-color: rgba(0, 0, 0, .5);
+  right: 0;
+  font-size: 3.5rem;
+  z-index: 10;
+}
 .item-name h2, .add-to-cart h2 {
   font-weight: bold;
 }
