@@ -1,7 +1,6 @@
-import React, {useState, useEffect, Children} from 'react'
+import React, {useState} from 'react'
 import './Order.css';
 import menuDataBase from '../lib/menuDataBase';
-import pic from '../assets/steak&eggs.jpg';
 const firstMenu = menuDataBase["menuOne"];
 
 export default function Order() {
@@ -68,9 +67,7 @@ export default function Order() {
             <div id="dropdown-button">V</div>
           </div>
        </div>
-        
         {renderBreakfastItems()}
-
        <div className="catagory-block" onClick={() => setVegan(!veganButton)}>
           <div className="catagory-title">
             <h1>Vegan</h1><br/>
@@ -80,9 +77,7 @@ export default function Order() {
             <div id="dropdown-button">V</div>
           </div>
        </div>
-
         {renderVeganItems()}
-
        <div className="catagory-block" onClick={() => setPaleo(!paleoButton)}>
           <div className="catagory-title">
             <h1>Low-Glycemic/Paleo</h1><br/>
@@ -92,9 +87,7 @@ export default function Order() {
             <div id="dropdown-button">V</div>
           </div>
        </div>
-        
         {renderPaleoItems()}
-
        <div className="catagory-block" onClick={() => setBulk(!bulkButton)}>
           <div className="catagory-title">
             <h1>Buy in Bulk</h1><br/>
@@ -104,14 +97,13 @@ export default function Order() {
             <div id="dropdown-button">V</div>
           </div>
        </div>
-
        {renderBulkItems()}
-
       </section>
       <MobileCart/>
     </div>
   )
 }
+
 function MobileCart() {
   return (
     <React.Fragment>
@@ -132,6 +124,7 @@ function MobileCart() {
     </React.Fragment>
   )
 }
+
 interface MenuProps {
   itemName: string;
   itemDescription: string;
@@ -144,7 +137,13 @@ function MenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps
     if (expandItemButton === true) {
       console.log('heyyy');
       return(
-      <ExpandMenuItem children={<div className="close-this-item" onClick={() => setMenuItem(false)}>X</div>} itemName={itemName} itemDescription={itemDescription} itemPrice={itemPrice} itemPicture={itemPicture}/>
+        <ExpandMenuItem 
+          children={<div className="close-this-item" onClick={() => setMenuItem(false)}>X</div>} 
+          itemName={itemName} 
+          itemDescription={itemDescription} 
+          itemPrice={itemPrice} 
+          itemPicture={itemPicture}
+        />
       )
     } else {
       return
@@ -162,18 +161,18 @@ function MenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps
         </div>
         <div className="catagory-button">
           <div id="price">{itemPrice}</div>
-          </div>
+        </div>
       </div>
     </div>
   )
 }
+
 const ExpandMenuItem: React.FC<MenuProps>= ({itemName, itemDescription, itemPrice, itemPicture, children}) => {
   const [orderCounter, setCounter] = useState(0);
   return (
     <div className="ExpandMenuItem">
       {children}
-      <div className="item-picture" style={{backgroundImage:`url(${itemPicture})`}}>
-      </div>
+      <div className="item-picture" style={{backgroundImage:`url(${itemPicture})`}}></div>
       <div className="item-name"><h2>{itemName} {itemPrice}</h2></div>
       <div className="item-description"><span>{itemDescription}</span></div>
       <div className="item-cart">
