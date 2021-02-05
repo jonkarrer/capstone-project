@@ -64,4 +64,4 @@
     [x] make a prop called addToCart. this will be a react node, JSX, with a click funtion that has acess to the "close expnadedItemButton" so when you click that the pop up closes.
     [x] put the {addToCart} prop into ExpandMenuItem component. Wrap that prop in a div that has a click event. 
     This can access the counter variable and used to add the item to the cart. Essesntially, on click, both events fire. One to add item to cart and one to close the pop up.
-[] create a subtotal,tax, and total
+[] create a subtotal, tax, and total

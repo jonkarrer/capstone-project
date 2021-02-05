@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './Order.css';
 import menuDataBase from '../lib/menuDataBase.js';
+import { render } from 'react-dom';
 const firstMenu = menuDataBase["menuOne"];
 
 export default function Order() {
@@ -108,7 +109,8 @@ interface Itemized {
   item: string;
   itemCost: any;
 }
-const shopCartArr: Array<object> = [];
+const shopCartArr: any = [];
+
 const ItemizedList: React.FC<Itemized> = ({itemCount, item, itemCost}) => {
   return (
     <div className="item-line">
@@ -118,13 +120,24 @@ const ItemizedList: React.FC<Itemized> = ({itemCount, item, itemCost}) => {
     </div>
   )
 }
-const renderItemizedList: any = () => {
-  for (let i=0; i < shopCartArr.length; i++) {
+const renderItemizedList = () => {
     return(
     <React.Fragment>
     {shopCartArr.map((object:any) => <ItemizedList itemCount={object.itemCount} item={object.item} itemCost={object.itemCost}/>)}
     </React.Fragment>
     )
+}
+const SubTotal = () => {
+  let subTotal : number | null = null;
+  if (shopCartArr.length > 0) {
+    subTotal = shopCartArr.reduce(function(a: number, b: { itemCost: number; }) { return a + b.itemCost}, 0);
+    return (
+      <div>
+        SubTotal: {subTotal}
+      </div>
+    )
+  } else {
+    return <React.Fragment></React.Fragment>
   }
 }
 function MobileCart() {
@@ -153,6 +166,7 @@ function MobileCart() {
         </section>
         <div className="itemized-list">
           {renderItemizedList()}
+          <SubTotal />
         </div>
       </div>
     </React.Fragment>
