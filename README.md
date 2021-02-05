@@ -56,4 +56,12 @@
     to assign each item with the picture url. this doesnt render on gh pages however. 
     [x] passed the close item button to the ExpandMenuItem as a prop. I passed an entire JSX object through
     as a friggin prop. called it children and placed it inside the component. this allowed the JSX object to access the proper hook. 
-
+[x] Make MobileCart component function
+    [x] make the height fixed, set translateY to -px. On cart click, reverse the translate to show cart. 
+    fix cart button with justify start property. 
+[x] populate with orders
+    [x] create a global array to store objects in. When "add to cart" is clicked, we need to move the price, name, and count of items to the shopping cart component and multiply price and count. 
+    [x] make a prop called addToCart. this will be a react node, JSX, with a click funtion that has acess to the "close expnadedItemButton" so when you click that the pop up closes.
+    [x] put the {addToCart} prop into ExpandMenuItem component. Wrap that prop in a div that has a click event. 
+    This can access the counter variable and used to add the item to the cart. Essesntially, on click, both events fire. One to add item to cart and one to close the pop up.
+[] create a subtotal,tax, and total

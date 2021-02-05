@@ -51,13 +51,18 @@
 .MobileCart {
   background-color: #728A45;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   width: 100vw;
-  height: 80px;
+  height: 600px;
   position: fixed;
   bottom: 0;
-  transition: top .3s;
+  transition: all 1s;
+  transform: translateY(515px);
+}
+#toggle-on {
+  transform: translateY(0);
 }
 .MobileCart section {
   background: #ECE7D9;
@@ -65,7 +70,8 @@
   grid-template-columns: auto auto;
   margin: 10px;
   padding: 10px;
-  width: 100%;
+  width: 90%;
+  bottom: 0;
 }
 .MobileCart .order-now {
   display: flex;
@@ -167,4 +173,19 @@
 .item-description span {
   font-size: 1rem;
   margin: 5px;
+}
+.itemized-list {
+  display: grid;
+  flex-direction: column;
+  width: 80%;
+  background:#ECE7D9;
+  margin-top: 10px;
+}
+.item-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  margin: 10px;
+  padding: 10px;
+  border-bottom: black solid thin;
 }

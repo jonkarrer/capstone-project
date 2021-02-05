@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './Order.css';
-import menuDataBase from '../lib/menuDataBase';
+import menuDataBase from '../lib/menuDataBase.js';
 const firstMenu = menuDataBase["menuOne"];
 
 export default function Order() {
@@ -103,13 +103,44 @@ export default function Order() {
     </div>
   )
 }
-
+interface Itemized {
+  itemCount: number;
+  item: string;
+  itemCost: any;
+}
+const shopCartArr: Array<object> = [];
+const ItemizedList: React.FC<Itemized> = ({itemCount, item, itemCost}) => {
+  return (
+    <div className="item-line">
+      <div className="item-count">x{itemCount}</div> 
+      <div className="item">{item}</div>
+      <div className="item-cost">${itemCost}</div>
+    </div>
+  )
+}
+const renderItemizedList: any = () => {
+  for (let i=0; i < shopCartArr.length; i++) {
+    return(
+    <React.Fragment>
+    {shopCartArr.map((object:any) => <ItemizedList itemCount={object.itemCount} item={object.item} itemCost={object.itemCost}/>)}
+    </React.Fragment>
+    )
+  }
+}
 function MobileCart() {
+  const [cartState, setCartState] = useState('toggle-off');
+  const toggleFunction = () => {
+    if (cartState === "toggle-off") {
+      setCartState("toggle-on");
+    } else {
+      setCartState("toggle-off");
+    }
+  }
   return (
     <React.Fragment>
-      <div className="MobileCart">
+      <div className="MobileCart" id={cartState}>
         <section>
-          <div id="cart-icon">
+          <div id="cart-icon" onClick={toggleFunction}>
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
               <path 
               d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 
@@ -120,6 +151,9 @@ function MobileCart() {
           </div>
           <div className="order-now">Submit Order</div>
         </section>
+        <div className="itemized-list">
+          {renderItemizedList()}
+        </div>
       </div>
     </React.Fragment>
   )
@@ -128,14 +162,13 @@ function MobileCart() {
 interface MenuProps {
   itemName: string;
   itemDescription: string;
-  itemPrice: string;
+  itemPrice: number;
   itemPicture: any;
 }
 function MenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps) {
   const [expandItemButton, setMenuItem] = useState(false);
   const renderItemPopUp = () => {
     if (expandItemButton === true) {
-      console.log('heyyy');
       return(
         <ExpandMenuItem 
           children={<div className="close-this-item" onClick={() => setMenuItem(false)}>X</div>} 
@@ -143,6 +176,7 @@ function MenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps
           itemDescription={itemDescription} 
           itemPrice={itemPrice} 
           itemPicture={itemPicture}
+          addToCart= {<div onClick={() => setMenuItem(false)}><h2>Add to Cart</h2></div>}
         />
       )
     } else {
@@ -160,27 +194,45 @@ function MenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps
           </p>
         </div>
         <div className="catagory-button">
-          <div id="price">{itemPrice}</div>
+          <div id="price">${itemPrice}</div>
         </div>
       </div>
     </div>
   )
 }
-
-const ExpandMenuItem: React.FC<MenuProps>= ({itemName, itemDescription, itemPrice, itemPicture, children}) => {
+interface ExpandProps {
+  itemName: string;
+  itemDescription: string;
+  itemPrice: number;
+  itemPicture: any;
+  addToCart: React.ReactNode;
+}
+const ExpandMenuItem: React.FC<ExpandProps>= ({itemName, itemDescription, itemPrice, itemPicture, children, addToCart}) => {
   const [orderCounter, setCounter] = useState(0);
   return (
     <div className="ExpandMenuItem">
       {children}
       <div className="item-picture" style={{backgroundImage:`url(${itemPicture})`}}></div>
-      <div className="item-name"><h2>{itemName} {itemPrice}</h2></div>
+      <div className="item-name"><h2>{itemName} {`$${itemPrice}`}</h2></div>
       <div className="item-description"><span>{itemDescription}</span></div>
       <div className="item-cart">
         <div className="minus-butt" onClick={() => setCounter(orderCounter - 1)}>⏤</div>
         <div className="number-counter">{orderCounter}</div>
         <div className="plus-butt" onClick={() => setCounter(orderCounter + 1)}>+</div>
       </div>
-      <div className="add-to-cart"><h2>Add to Cart</h2></div>
+      <div className="add-to-cart" onClick={() => {
+          const cartObject = {
+            itemCount: orderCounter,
+            item: itemName,
+            itemCost: itemPrice * orderCounter
+          }
+          shopCartArr.push(cartObject);
+        }}
+      >
+        {addToCart}
+      </div>
     </div>
+
   )
 }
+
