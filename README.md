@@ -52,4 +52,8 @@
     [x] made an onclick function that runs the map function. created a map function and useState hook for each menu catagory
 [x] add click event to menu items. should make a component pop up.
     [x] making a absolute position component called expandmenuitem. This will be hidden until the click function is called. The menu item will pass its info to this component and display inside of box.
+    [x] put the pictures in the public folder to call into the component. i put the path in the lib folder
+    to assign each item with the picture url. this doesnt render on gh pages however. 
+    [x] passed the close item button to the ExpandMenuItem as a prop. I passed an entire JSX object through
+    as a friggin prop. called it children and placed it inside the component. this allowed the JSX object to access the proper hook. 
 
