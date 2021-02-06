@@ -1,6 +1,8 @@
 import React, {useState} from "../../_snowpack/pkg/react.js";
+import MobileCart, {ExpandMenuItem} from "./MobileCart/MobileCart.js";
 import "./Order.css.proxy.js";
 import menuDataBase from "../lib/menuDataBase.js";
+import {TotalProvider} from "./TotalContext.js";
 const firstMenu = menuDataBase["menuOne"];
 export default function Order() {
   const [breakfastButton, setBreakfast] = useState(false);
@@ -55,105 +57,82 @@ export default function Order() {
       return /* @__PURE__ */ React.createElement(React.Fragment, null);
     }
   };
-  return /* @__PURE__ */ React.createElement("div", {
+  return /* @__PURE__ */ React.createElement(TotalProvider, null, /* @__PURE__ */ React.createElement("div", {
     className: "Order"
   }, /* @__PURE__ */ React.createElement("section", null, /* @__PURE__ */ React.createElement("h1", {
     id: "heading"
   }, "This Weeks Menu")), /* @__PURE__ */ React.createElement("section", {
     className: "food-menu"
   }, /* @__PURE__ */ React.createElement("div", {
-    className: "catagory-block"
+    className: "catagory-block",
+    onClick: () => setBreakfast(!breakfastButton)
   }, /* @__PURE__ */ React.createElement("div", {
     className: "catagory-title"
   }, /* @__PURE__ */ React.createElement("h1", null, "Breakfast"), /* @__PURE__ */ React.createElement("br", null), /* @__PURE__ */ React.createElement("p", null, "Save the time for coffee.")), /* @__PURE__ */ React.createElement("div", {
     className: "catagory-button"
   }, /* @__PURE__ */ React.createElement("div", {
-    id: "dropdown-button",
-    onClick: () => setBreakfast(!breakfastButton)
+    id: "dropdown-button"
   }, "V"))), renderBreakfastItems(), /* @__PURE__ */ React.createElement("div", {
-    className: "catagory-block"
+    className: "catagory-block",
+    onClick: () => setVegan(!veganButton)
   }, /* @__PURE__ */ React.createElement("div", {
     className: "catagory-title"
   }, /* @__PURE__ */ React.createElement("h1", null, "Vegan"), /* @__PURE__ */ React.createElement("br", null), /* @__PURE__ */ React.createElement("p", null, "Life starts with plants.")), /* @__PURE__ */ React.createElement("div", {
     className: "catagory-button"
   }, /* @__PURE__ */ React.createElement("div", {
-    id: "dropdown-button",
-    onClick: () => setVegan(!veganButton)
+    id: "dropdown-button"
   }, "V"))), renderVeganItems(), /* @__PURE__ */ React.createElement("div", {
-    className: "catagory-block"
+    className: "catagory-block",
+    onClick: () => setPaleo(!paleoButton)
   }, /* @__PURE__ */ React.createElement("div", {
     className: "catagory-title"
   }, /* @__PURE__ */ React.createElement("h1", null, "Low-Glycemic/Paleo"), /* @__PURE__ */ React.createElement("br", null), /* @__PURE__ */ React.createElement("p", null, "Fuel the body with what it needs.")), /* @__PURE__ */ React.createElement("div", {
     className: "catagory-button"
   }, /* @__PURE__ */ React.createElement("div", {
-    id: "dropdown-button",
-    onClick: () => setPaleo(!paleoButton)
+    id: "dropdown-button"
   }, "V"))), renderPaleoItems(), /* @__PURE__ */ React.createElement("div", {
-    className: "catagory-block"
+    className: "catagory-block",
+    onClick: () => setBulk(!bulkButton)
   }, /* @__PURE__ */ React.createElement("div", {
     className: "catagory-title"
   }, /* @__PURE__ */ React.createElement("h1", null, "Buy in Bulk"), /* @__PURE__ */ React.createElement("br", null), /* @__PURE__ */ React.createElement("p", null, "Pounds of select items")), /* @__PURE__ */ React.createElement("div", {
     className: "catagory-button"
   }, /* @__PURE__ */ React.createElement("div", {
-    id: "dropdown-button",
-    onClick: () => setBulk(!bulkButton)
-  }, "V"))), renderBulkItems()), /* @__PURE__ */ React.createElement(MobileCart, null));
-}
-function MobileCart() {
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
-    className: "MobileCart"
-  }, /* @__PURE__ */ React.createElement("section", null, /* @__PURE__ */ React.createElement("div", {
-    id: "cart-icon"
-  }, /* @__PURE__ */ React.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "40",
-    height: "40",
-    viewBox: "0 0 24 24"
-  }, /* @__PURE__ */ React.createElement("path", {
-    d: "M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 \n              1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 \n              1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.813l2.938 7h11.898zm4.969-10l-3.432 \n              12h-12.597l.839 2h13.239l3.474-12h1.929l.743-2h-4.195z"
-  }))), /* @__PURE__ */ React.createElement("div", {
-    className: "order-now"
-  }, "Submit Order"))));
+    id: "dropdown-button"
+  }, "V"))), renderBulkItems()), /* @__PURE__ */ React.createElement(MobileCart, null)));
 }
 function MenuItem({itemName, itemDescription, itemPrice, itemPicture}) {
   const [expandItemButton, setMenuItem] = useState(false);
   const renderItemPopUp = () => {
     if (expandItemButton === true) {
-      console.log("heyyy");
       return /* @__PURE__ */ React.createElement(ExpandMenuItem, {
+        children: /* @__PURE__ */ React.createElement("div", {
+          className: "close-this-item",
+          onClick: () => setMenuItem(false)
+        }, "X"),
         itemName,
         itemDescription,
         itemPrice,
-        itemPicture
+        itemPicture,
+        addToCart: /* @__PURE__ */ React.createElement("div", {
+          id: "add-to-cart-close",
+          onClick: () => setMenuItem(false)
+        }, /* @__PURE__ */ React.createElement("h2", null, "Add to Cart"))
       });
     } else {
       return;
     }
   };
   return /* @__PURE__ */ React.createElement("div", {
-    className: "MenuItem",
-    onClick: () => setMenuItem(!expandItemButton)
+    className: "MenuItem"
   }, /* @__PURE__ */ React.createElement("div", {
     className: "catagory-block"
   }, renderItemPopUp(), /* @__PURE__ */ React.createElement("div", {
-    className: "catagory-title"
+    className: "catagory-title",
+    onClick: () => setMenuItem(!expandItemButton)
   }, /* @__PURE__ */ React.createElement("h1", null, itemName), /* @__PURE__ */ React.createElement("br", null), /* @__PURE__ */ React.createElement("p", null, itemDescription)), /* @__PURE__ */ React.createElement("div", {
     className: "catagory-button"
   }, /* @__PURE__ */ React.createElement("div", {
     id: "price"
-  }, itemPrice))));
-}
-function ExpandMenuItem({itemName, itemDescription, itemPrice, itemPicture}) {
-  return /* @__PURE__ */ React.createElement("div", {
-    className: "ExpandMenuItem"
-  }, /* @__PURE__ */ React.createElement("div", {
-    className: "item-picture",
-    style: {backgroundImage: `url(${itemPicture})`}
-  }), /* @__PURE__ */ React.createElement("div", {
-    className: "item-name"
-  }, itemName, " ", itemPrice), /* @__PURE__ */ React.createElement("div", {
-    className: "item-description"
-  }, itemDescription), /* @__PURE__ */ React.createElement("div", {
-    className: "item-cart"
-  }, "+ or minus"));
+  }, "$", itemPrice))));
 }
