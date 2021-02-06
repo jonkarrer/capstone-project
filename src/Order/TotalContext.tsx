@@ -27,9 +27,8 @@ export function updateSubTotal() {
 const shopCartItems: any = [];
 export function TotalProvider({ children }:TotalProps) {
  
-  const [subTotal, setSubTotal] = useState(2);
+  const [subTotal, setSubTotal] = useState(0);
   const changeSubTotal = () => {
-    console.log(shopCartItems);
     setSubTotal(shopCartItems.reduce(function(a: number, b: { itemCost: number, itemCount: number }) { return a + b.itemCost * b.itemCount}, 0))
   }
   return (

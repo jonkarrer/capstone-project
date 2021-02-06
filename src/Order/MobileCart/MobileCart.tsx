@@ -12,7 +12,7 @@ export default function MobileCart() {
   }
   return (
       <div className="MobileCart" id={cartState}>
-        <section>
+        <section onClick={updateSubTotal()}>
           <div id="cart-icon" onClick={toggleFunction}>
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24">
               <path 
@@ -25,7 +25,7 @@ export default function MobileCart() {
         </section>
         <div className="itemized-list">
           {renderItemizedList()} 
-          
+           <SubTotal />
         </div>
         <div className="order-now">Submit Order</div>
       </div>
@@ -71,7 +71,7 @@ const renderItemizedList = () => {
   return(
   <React.Fragment>
   {currentCart.map((object:any) => <ItemizedList index={object.index} itemCount={object.itemCount} item={object.item} itemCost={object.itemCost}/>)}
-  <SubTotal />
+ 
   </React.Fragment>
   )
 }
