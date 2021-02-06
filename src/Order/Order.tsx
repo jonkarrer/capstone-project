@@ -116,9 +116,9 @@ const ItemizedList: React.FC<Itemized> = ({itemCount, item, itemCost}) => {
     <div className="item-line">
       <div className="item-count">
         <div className="minus-butt" onClick={() => setCount(currentCount - 1)}>⏤</div>
-        x{currentCount}
-        </div> 
+        <div>x{currentCount}</div>
         <div className="plus-butt" onClick={() => setCount(currentCount + 1)}>+</div>
+      </div> 
       <div className="item">{item}</div>
       <div className="item-cost">${itemCost * currentCount}</div>
     </div>
@@ -134,14 +134,14 @@ const renderItemizedList = () => {
 const SubTotal = () => {
   let subTotal : number = 0;
   if (shopCartArr.length > 0) {
-    subTotal = shopCartArr.reduce(function(a: number, b: { itemCost: number; }) { return a + b.itemCost}, 0);
+    subTotal = shopCartArr.reduce(function(a: number, b: { itemCost: number, itemCount: number }) { return a + b.itemCost * b.itemCount}, 0);
     return (
       <React.Fragment>
       <div className="subtotal">
         SubTotal: $ {subTotal}
       </div>
       <div className="tax">
-        Tax : $ { subTotal * .1 }
+        Tax : $ { (subTotal * .1 ).toPrecision(3)}
       </div>
       <div className="total">
         Total : $ {(subTotal * .1) + subTotal }
@@ -203,7 +203,7 @@ function MenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps
           itemDescription={itemDescription} 
           itemPrice={itemPrice} 
           itemPicture={itemPicture}
-          addToCart= {<div onClick={() => setMenuItem(false)}><h2>Add to Cart</h2></div>}
+          addToCart= {<div id="add-to-cart-close" onClick={() => setMenuItem(false)}><h2>Add to Cart</h2></div>}
         />
       )
     } else {
@@ -251,7 +251,7 @@ const ExpandMenuItem: React.FC<ExpandProps>= ({itemName, itemDescription, itemPr
           const cartObject = {
             itemCount: orderCounter,
             item: itemName,
-            itemCost: itemPrice * orderCounter
+            itemCost: itemPrice
           }
           shopCartArr.push(cartObject);
         }}
