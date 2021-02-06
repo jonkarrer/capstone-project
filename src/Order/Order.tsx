@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import './Order.css';
 import menuDataBase from '../lib/menuDataBase.js';
-import { render } from 'react-dom';
 const firstMenu = menuDataBase["menuOne"];
 
 export default function Order() {
@@ -112,11 +111,16 @@ interface Itemized {
 const shopCartArr: any = [];
 
 const ItemizedList: React.FC<Itemized> = ({itemCount, item, itemCost}) => {
+  const [currentCount, setCount] = useState(itemCount)
   return (
     <div className="item-line">
-      <div className="item-count">x{itemCount}</div> 
+      <div className="item-count">
+        <div className="minus-butt" onClick={() => setCount(currentCount - 1)}>⏤</div>
+        x{currentCount}
+        </div> 
+        <div className="plus-butt" onClick={() => setCount(currentCount + 1)}>+</div>
       <div className="item">{item}</div>
-      <div className="item-cost">${itemCost}</div>
+      <div className="item-cost">${itemCost * currentCount}</div>
     </div>
   )
 }
@@ -258,4 +262,3 @@ const ExpandMenuItem: React.FC<ExpandProps>= ({itemName, itemDescription, itemPr
 
   )
 }
-
