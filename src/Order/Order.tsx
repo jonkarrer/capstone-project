@@ -128,13 +128,22 @@ const renderItemizedList = () => {
     )
 }
 const SubTotal = () => {
-  let subTotal : number | null = null;
+  let subTotal : number = 0;
   if (shopCartArr.length > 0) {
     subTotal = shopCartArr.reduce(function(a: number, b: { itemCost: number; }) { return a + b.itemCost}, 0);
     return (
-      <div>
-        SubTotal: {subTotal}
+      <React.Fragment>
+      <div className="subtotal">
+        SubTotal: $ {subTotal}
       </div>
+      <div className="tax">
+        Tax : $ { subTotal * .1 }
+      </div>
+      <div className="total">
+        Total : $ {(subTotal * .1) + subTotal }
+      </div>
+      (Click Submit Order to continue)
+      </React.Fragment>
     )
   } else {
     return <React.Fragment></React.Fragment>
@@ -154,7 +163,7 @@ function MobileCart() {
       <div className="MobileCart" id={cartState}>
         <section>
           <div id="cart-icon" onClick={toggleFunction}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24">
               <path 
               d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 
               1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 
@@ -162,12 +171,12 @@ function MobileCart() {
               12h-12.597l.839 2h13.239l3.474-12h1.929l.743-2h-4.195z"/>
             </svg>
           </div>
-          <div className="order-now">Submit Order</div>
         </section>
         <div className="itemized-list">
           {renderItemizedList()}
           <SubTotal />
         </div>
+        <div className="order-now">Submit Order</div>
       </div>
     </React.Fragment>
   )
@@ -222,7 +231,7 @@ interface ExpandProps {
   addToCart: React.ReactNode;
 }
 const ExpandMenuItem: React.FC<ExpandProps>= ({itemName, itemDescription, itemPrice, itemPicture, children, addToCart}) => {
-  const [orderCounter, setCounter] = useState(0);
+  const [orderCounter, setCounter] = useState(1);
   return (
     <div className="ExpandMenuItem">
       {children}
