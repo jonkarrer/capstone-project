@@ -6,15 +6,7 @@ const subTotalContext = React.createContext();
 interface TotalProps {
   children: any;
 }
-interface ShopCart {
-  itemCount: number;
-  item: string;
-  itemCost: number;
-  index: number;
-  key: number;
-}
-
-
+const shopCartItems: any = [];
 export function useArr() {
   return useContext(TotalContext)
 }
@@ -24,9 +16,9 @@ export function useSubTotal() {
 export function updateSubTotal() {
   return useContext(updateContext)
 }
-const shopCartItems: any = [];
+
 export function TotalProvider({ children }:TotalProps) {
- 
+
   const [subTotal, setSubTotal] = useState();
   const changeSubTotal = () => {
     setSubTotal(shopCartItems.reduce(function(a: number, b: { itemCost: number, itemCount: number }) { return a + b.itemCost * b.itemCount}, 0))

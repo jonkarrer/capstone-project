@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {useArr, updateSubTotal, useSubTotal} from '../TotalContext'
+import React, {useState} from 'react';
+import {useArr, updateSubTotal, useSubTotal} from './TotalContext'
 
 export default function MobileCart() {
   const [cartState, setCartState] = useState('toggle-off');
@@ -31,14 +31,12 @@ export default function MobileCart() {
       </div>
   )
 }
-
 interface Itemized {
   itemCount: number;
   item: string;
   itemCost: any;
   index: number;
 }
-
 const ItemizedList: React.FC<Itemized> = ({index,itemCount, item, itemCost}) => {
   const [currentCount, setCount] = useState(itemCount);
   const currentCart: any = useArr();
@@ -56,9 +54,9 @@ const ItemizedList: React.FC<Itemized> = ({index,itemCount, item, itemCost}) => 
     <React.Fragment>
     <div className="item-line">
       <div className="item-count">
-        <div className="minus-butt" onClick={updateTotal}><div onClick={subCount}>⏤</div></div>
+        <div className="minus-butt" onClick={updateTotal}><div onClick={subCount} id="cart-sub-butt">⏤</div></div>
         <div>x{currentCount}</div>
-        <div className="plus-butt" onClick={updateTotal}><div onClick={addCount}>+</div></div>
+        <div className="plus-butt" onClick={updateTotal}><div onClick={addCount}id="cart-add-butt">+</div></div>
       </div> 
       <div className="item">{item}</div>
       <div className="item-cost">${itemCost * currentCount}</div>
@@ -71,12 +69,10 @@ const renderItemizedList = () => {
   return(
   <React.Fragment>
   {currentCart.map((object:any) => <ItemizedList index={object.index} itemCount={object.itemCount} item={object.item} itemCost={object.itemCost}/>)}
- 
   </React.Fragment>
   )
 }
 const SubTotal = () => {
-  const currentCart: any = useArr();
   const currentSubTotal: any = useSubTotal();
     return (
       <React.Fragment>
@@ -84,49 +80,12 @@ const SubTotal = () => {
         SubTotal: $ {currentSubTotal}
       </div>
       <div className="tax">
-        Tax : $ { (currentSubTotal * .1 )}
+        Tax : $ { (currentSubTotal * .1 ).toFixed(2)}
       </div>
       <div className="total">
-        Total : $ {((currentSubTotal * .1) + currentSubTotal)}
+        Total : $ {((currentSubTotal * .1) + currentSubTotal).toFixed(2)}
       </div>
       (Click Submit Order to continue)
       </React.Fragment>
     )
-}
-interface ExpandProps {
-  itemName: string;
-  itemDescription: string;
-  itemPrice: number;
-  itemPicture: any;
-  addToCart: React.ReactNode;
-}
-export const ExpandMenuItem: React.FC<ExpandProps>= ({itemName, itemDescription, itemPrice, itemPicture, children, addToCart}) => {
-  const currentCart: any = useArr();
-  const [orderCounter, setCounter] = useState(1);
-  return (
-    <div className="ExpandMenuItem">
-      {children}
-      <div className="item-picture" style={{backgroundImage:`url(${itemPicture})`}}></div>
-      <div className="item-name"><h2>{itemName} {`$${itemPrice}`}</h2></div>
-      <div className="item-description"><span>{itemDescription}</span></div>
-      <div className="item-cart">
-        <div className="minus-butt" onClick={() => setCounter(orderCounter - 1)}>⏤</div>
-        <div className="number-counter">{orderCounter}</div>
-        <div className="plus-butt" onClick={() => setCounter(orderCounter + 1)}>+</div>
-      </div>
-      <div className="add-to-cart" onClick={() => {
-          const cartObject = {
-            itemCount: orderCounter,
-            item: itemName,
-            itemCost: itemPrice,
-            index: currentCart.length,
-            key: currentCart.length
-          }
-          currentCart.push(cartObject);
-        }}
-      >
-        {addToCart}
-      </div>
-    </div>
-  )
 }

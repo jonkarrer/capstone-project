@@ -56,10 +56,11 @@
   align-items: center;
   width: 100vw;
   height: 70vh;
+  max-height: 1000px;
   position: fixed;
   bottom: 0;
   transition: all 1s;
-  transform: translateY(70vh);
+  transform: translateY(65vh);
   padding-bottom: 30px;
 }
 #toggle-on {
@@ -206,6 +207,9 @@
 .item-count {
   display: flex;
   justify-content: space-between;
+  width: 20%;
+  min-width: 80px;
+  max-width: 200px;
 }
 .subtotal, .tax, .total {
   font-size: 1.2rem;
@@ -216,4 +220,10 @@
 }
 .total {
   margin-bottom: 10px;
+}
+#cart-add-butt {
+  font-size: 20px;
+}
+#cart-add-butt, #cart-sub-butt:hover {
+  cursor: pointer;
 }

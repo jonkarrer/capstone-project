@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import MobileCart, {ExpandMenuItem} from './MobileCart/MobileCart'
+import MobileCart from './MobileCart'
 import './Order.css';
 import menuDataBase from '../lib/menuDataBase.js';
-import {TotalProvider} from './TotalContext'
+import {TotalProvider, useArr} from './TotalContext'
 
 const firstMenu = menuDataBase["menuOne"];
 
@@ -148,3 +148,41 @@ function MenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps
       </div>
     </div>
   )}
+  interface ExpandProps {
+    itemName: string;
+    itemDescription: string;
+    itemPrice: number;
+    itemPicture: any;
+    addToCart: React.ReactNode;
+  }
+const ExpandMenuItem: React.FC<ExpandProps>= ({itemName, itemDescription, itemPrice, itemPicture, children, addToCart}) => {
+    const currentCart: any = useArr();
+    const [orderCounter, setCounter] = useState(1);
+    return (
+      <div className="ExpandMenuItem">
+        {children}
+        <div className="item-picture" style={{backgroundImage:`url(${itemPicture})`}}></div>
+        <div className="item-name"><h2>{itemName} {`$${itemPrice}`}</h2></div>
+        <div className="item-description"><span>{itemDescription}</span></div>
+        <div className="item-cart">
+          <div className="minus-butt" onClick={() => setCounter(orderCounter - 1)}>⏤</div>
+          <div className="number-counter">{orderCounter}</div>
+          <div className="plus-butt" onClick={() => setCounter(orderCounter + 1)}>+</div>
+        </div>
+        <div className="add-to-cart" onClick={() => 
+        {
+          const cartObject = { //Package this order, push to TotalContext.tsx variable.
+              itemCount: orderCounter,
+              item: itemName,
+              itemCost: itemPrice,
+              index: currentCart.length,
+              key: currentCart.length
+          };
+          currentCart.push(cartObject);
+        }}
+        >
+          {addToCart}
+        </div>
+      </div>
+    )
+  }
