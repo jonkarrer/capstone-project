@@ -1,4 +1,4 @@
-# My Meal Prep Company
+# Nu Leaf Meal Prep Company
 
 ## Create react with snopack development
 
@@ -41,15 +41,27 @@
     }
     ```
 
-4.  in snowpack config, build options, 
-            add baseUrl: '/capstone-project'.
-      
-      [x] in snowpack-config, add '@snowpack/plugin-webpack' to plugins
-    [x] Double check all dependencies are there. 
-    [x] use "npm run deploy" to push project to gh-pages for test.
-[x] Set up react production patters
-    [x] delete boilerplate
-    [x] move index.css to public, clean html and other files. 
+## Adjust snowpack config
+
+1. in snowpack config add
+
+    ```javascript
+        plugins: [
+            '@snowpack/plugin-webpack'
+        ],
+        buildOptions: [
+            baseUrl: '/capstone-project'.
+        ]
+    ```
+
+2. Double check for all all dependencies.
+
+## Deploy app to gh-pages
+
+```bash
+npm run deploy
+```
+
 [x] In App.tsx, begin planning build
     [x] Template a home component for home page
     [x] Template navbar component for header
