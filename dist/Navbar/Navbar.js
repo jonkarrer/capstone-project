@@ -29,8 +29,8 @@ function Navbar() {
     id: "story",
     to: "/story"
   }, /* @__PURE__ */ React.createElement("h1", null, "Story")), /* @__PURE__ */ React.createElement(Link, {
-    className: "faq",
-    to: "/home"
-  }, /* @__PURE__ */ React.createElement("h1", null, "FAQs")))));
+    className: "home",
+    to: "/"
+  }, /* @__PURE__ */ React.createElement("h1", null, "Home")))));
 }
 export default withRouter(Navbar);

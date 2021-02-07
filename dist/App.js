@@ -9,15 +9,15 @@ function App({}) {
   return /* @__PURE__ */ React.createElement("div", {
     className: "App"
   }, /* @__PURE__ */ React.createElement(Router, null, /* @__PURE__ */ React.createElement(Navbar, null), /* @__PURE__ */ React.createElement(Switch, null, /* @__PURE__ */ React.createElement(Route, {
-    path: "http://jonkarrer.github.io/capstone-project/",
+    path: "/story",
     exact: true,
     component: () => /* @__PURE__ */ React.createElement(Home, null)
   }), /* @__PURE__ */ React.createElement(Route, {
-    path: "http://jonkarrer.github.io/capstone-project/story",
+    path: "/",
     exact: true,
     component: () => /* @__PURE__ */ React.createElement(Story, null)
   }), /* @__PURE__ */ React.createElement(Route, {
-    path: "http://jonkarrer.github.io/capstone-project/order",
+    path: "/order",
     exact: true,
     component: () => /* @__PURE__ */ React.createElement(Order, null)
   }), /* @__PURE__ */ React.createElement(Story, null))));
