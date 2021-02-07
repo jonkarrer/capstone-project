@@ -25,14 +25,16 @@
 .MobileBody section {
   padding: 20px;
   letter-spacing: 2px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 .MobileBody section h1 {
-  font-size: 3.5em;
+  font-size: 3em;
   text-shadow: grey 0px 4px;
   color: white;
 }
 .MobileBody section h2 {
-  font-size: 3.5em;
+  font-size: 3em;
   text-shadow: grey 0px 4px;
 }
 .MobileBody section p {
@@ -45,10 +47,9 @@
 }
 .MobileBody section button {
   padding: 10px;
-  width: 30%;
+  width: 40%;
   min-width: 100px;
   max-width: 250px;
-  height: 50px;
   font-size: 1em;
   margin: 10px;
 }
