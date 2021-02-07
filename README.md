@@ -62,30 +62,78 @@
 npm run deploy
 ```
 
-[x] In App.tsx, begin planning build
-    [x] Template a home component for home page
-    [x] Template navbar component for header
-    [x] Template body component for home
-[x] Create Home page component
-    [x] import navbar and body
-[x] create navbar component
-    [x] use flexbox on Navabar wrapper, center section
-    [x] use grid on section, auto auto, seperates links
-    [x] color background, set margins, size for mobile first.
-    [x] add scroll up disapear effect
-        [x] bring in useState, useEffect. set 2 states, the state of the 
-            current windowY position, 0, and the current navebar position
-            '0'.
-        [x] set a reactive style onto .Navbar with 
-            style={{top: ${useStateNavbarVariable}}}. 
-        [x] put a window.scroll event into the useEffect hook. Compare 
-            the previous postion to the current one, assign the navbar
-            state hook accordingly. Make sure to remove listerner, and use the array [] at the end of use effect. Could maybe make a custom hook here;
-[x] create homepage
-[x] instal react-router-dom
-[x] make story page and set up routes with router
-    [] change the navbar to include a home button when not on home page. 
-[x] re installed react dom with npm install --save because its differemt. Had to remove it from devDependent in package.json so snowpack would work?
+## Unique actions
+
+### Scroll up navbar effect in NavBar.tsx
+
+1. What happens on scroll
+
+    ```javascript
+        const [navbarPosition, setNavbar] = useState('0');
+        const [scrollPosition, setPosition] = useState(0);
+        useEffect(() => {
+            const onScroll = () => {
+            const currentPosition = window.pageYOffset;
+            if (scrollPosition > currentPosition || scrollPosition < 10) {
+                setNavbar('0');
+            } else {
+                setNavbar('-100px');
+            }
+            setPosition(currentPosition);
+            }
+            window.addEventListener('scroll', onScroll)
+            return () => window.removeEventListener('scroll', onScroll);
+        }, [scrollPosition]);
+    ```
+
+2. Make a reactive style onto Navbar.tsx with
+
+    ```javascript
+    style={{top: ${useStateNavbarVariable}}} 
+    ```
+
+### Routing to pages
+
+1. install react-router-dom
+
+    ```bash
+    npm install --save react-router-dom
+    ```
+
+2. set up router in Navbar.tsx
+
+    ```javascript
+    import { Link, withRouter } from "react-router-dom";
+
+    <React.Fragment>
+        <div className="NavBar" style={{top:`${navbarPosition}`}}>
+        <section className="links">
+            <Link id="order" to="/order"><h1>Order</h1></Link>
+            <Link id="story" to="/story"><h1>Story</h1></Link>
+            <Link className="home" to="/"><h1>Home</h1></Link>
+        </section>
+        </div>
+    </React.Fragment>
+    ```
+
+3. set up router in App.js
+
+    ```javascript
+    import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+     <div className="App">
+      <Router>
+        <Navbar/>
+        <Switch>
+          <Route path='/story' exact component={() => <Story />}/>
+          <Route path='/' exact component={() => <Home />} />
+          <Route path='/order' exact component={() => <Order />}/>
+          <Story />
+        </Switch>
+      </Router>
+    </div>
+    ```
+
 [x] make order page design
     [x] simple grid and flexbox work. Made the foot a shopping cart similar to the navbar set up. Will stay fixed no move. So i need to add functionality to the dropdown arrows, and add things to the cart. 
 [x] add order page funtionality
