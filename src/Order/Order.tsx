@@ -178,8 +178,7 @@ const ExpandMenuItem: React.FC<ExpandProps>= ({itemName, itemDescription, itemPr
               key: currentCart.length
           };
           currentCart.push(cartObject);
-        }}
-        >
+        }}>
           {addToCart}
         </div>
       </div>
