@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MobileBody from '../Body/MobileBody'
+import MobileBody from './MobileBody'
 import './Home.css';
 
 export default function Home() {
