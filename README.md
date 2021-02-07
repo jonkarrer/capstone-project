@@ -1,11 +1,20 @@
 #My Meal Prep Company
 
-[x] Create react with snopack development. 
-    [x] install snowpack with typescript template
-    [x] set git repo
-    [x] install gh-pages plugin
-      [x] add "homepage": "http://jonkarrer.github.io/capstone-project",in package.json
-      [x] add  "scripts": {
+## Create react with snopack development. 
+    1. install snowpack with typescript template
+    ```bash
+    npx create-snowpack-app react-snowpack --template @snowpack/app-template-react-typescript
+    ```
+## Install git-hub and gh-pages
+    2. set git repo normally
+    3. install gh-pages plugin
+    ```bash
+    npm install gh-pages
+    ```
+    4. check dependencies in package.json. "gh-pages" should appear
+## Adjust package.json
+    5. add "homepage": "http://jonkarrer.github.io/capstone-project", above scripts in package.json
+    6. add  "scripts": {
           "predeploy": "npx snowpack build",
           "deploy": "gh-pages -d build",
       [x]  in snowpack config, build options, 
