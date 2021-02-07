@@ -62,7 +62,7 @@
 npm run deploy
 ```
 
-## Unique actions
+## Unique building points
 
 ### Scroll up navbar effect in NavBar.tsx
 
@@ -134,26 +134,72 @@ npm run deploy
     </div>
     ```
 
-[x] make order page design
-    [x] simple grid and flexbox work. Made the foot a shopping cart similar to the navbar set up. Will stay fixed no move. So i need to add functionality to the dropdown arrows, and add things to the cart. 
-[x] add order page funtionality
-    [x] starting with the dropdown arrows, i need to render in a component with a picture and a discription and a price.
-    [x] first i made a data structure in menuDataBase.ts. Imported that into order.tsx. The database holds all menus, descriptions, titles and prices. 
-    [x] build a MenuItem component in order.tsx. created 3 props to pass. 
-    [x] with a map function, i render multiple Menuitem components into the dom. I pass the database info as props. 
-    [x] made an onclick function that runs the map function. created a map function and useState hook for each menu catagory
-[x] add click event to menu items. should make a component pop up.
-    [x] making a absolute position component called expandmenuitem. This will be hidden until the click function is called. The menu item will pass its info to this component and display inside of box.
-    [x] put the pictures in the public folder to call into the component. i put the path in the lib folder
-    to assign each item with the picture url. this doesnt render on gh pages however. 
-    [x] passed the close item button to the ExpandMenuItem as a prop. I passed an entire JSX object through
-    as a friggin prop. called it children and placed it inside the component. this allowed the JSX object to access the proper hook. 
-[x] Make MobileCart component function
-    [x] make the height fixed, set translateY to -px. On cart click, reverse the translate to show cart. 
-    fix cart button with justify start property. 
-[x] populate with orders
-    [x] create a global array to store objects in. When "add to cart" is clicked, we need to move the price, name, and count of items to the shopping cart component and multiply price and count. 
-    [x] make a prop called addToCart. this will be a react node, JSX, with a click funtion that has acess to the "close expnadedItemButton" so when you click that the pop up closes.
-    [x] put the {addToCart} prop into ExpandMenuItem component. Wrap that prop in a div that has a click event. 
-    This can access the counter variable and used to add the item to the cart. Essesntially, on click, both events fire. One to add item to cart and one to close the pop up.
+## Make a library that stores a menu
+
+1. The library is in ./src/lib/menuDataBase.ts
+2. With a map function, I render multiple Menuitem components into the dom. I pass the database info as props.
+
+    ```javascript
+     <React.Fragment>
+        {firstMenu.bulk.map((object) => 
+        <MenuItem 
+        itemName={object.name} 
+        itemDescription={object.description} 
+        itemPrice={object.price} 
+        itemPicture={object.picture}/
+        >)}
+    </React.Fragment>
+    ```
+
+### Had to put picrues in a public asset folder for development
+
+1. Put the pictures in the public folder to call into the component. I put the path in the library folder
+    to assign each item with a picture url. This doesnt render on gh pages however.
+
+### Make Cart component dynamics
+
+1. Make the height fixed, set translateY to -px. On cart click, reverse the translate to show cart.
+fix cart button with justify start property.
+
+### Populate cart with orders
+
+1. Created a global array to store objects in. When "Add to Cart" is clicked, move the price, name, and count of items to the shopping cart component and multiply price and count.
+2. In ExpandMenuItems component, there are 2 critical click functions. One is a JSX prop!
+
+    ```javascript
+       <div className="add-to-cart" onClick={() => 
+        {
+          const cartObject = { //Package this order, push to TotalContext.tsx variable.
+              itemCount: orderCounter,
+              item: itemName,
+              itemCost: itemPrice,
+              index: currentCart.length,
+              key: currentCart.length
+          };
+          currentCart.push(cartObject);
+        }}
+        >
+          {addToCart}
+        </div>
+    ```
+
+3. addToCart prop comes from
+
+    ```javascript
+    function MenuItem({itemName, itemDescription, itemPrice, itemPicture}: MenuProps) {
+        const [expandItemButton, setMenuItem] = useState(false);
+        const renderItemPopUp = () => {
+            if (expandItemButton === true) {
+            return(
+                <ExpandMenuItem 
+                children={<div className="close-this-item" onClick={() => setMenuItem(false)}>X</div>} 
+                itemName={itemName} 
+                itemDescription={itemDescription} 
+                itemPrice={itemPrice} 
+                itemPicture={itemPicture}
+                addToCart= {<div id="add-to-cart-close" onClick={() => setMenuItem(false)}><h2>Add to Cart</h2></div>}
+                />
+            )
+    ```
+    
 [] create a subtotal, tax, and total
