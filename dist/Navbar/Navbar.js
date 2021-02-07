@@ -30,7 +30,7 @@ function Navbar() {
     to: "/story"
   }, /* @__PURE__ */ React.createElement("h1", null, "Story")), /* @__PURE__ */ React.createElement(Link, {
     className: "faq",
-    to: "/"
+    to: "/home"
   }, /* @__PURE__ */ React.createElement("h1", null, "FAQs")))));
 }
 export default withRouter(Navbar);
