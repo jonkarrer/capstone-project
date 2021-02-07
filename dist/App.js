@@ -11,11 +11,11 @@ function App({}) {
   }, /* @__PURE__ */ React.createElement(Router, null, /* @__PURE__ */ React.createElement(Navbar, null), /* @__PURE__ */ React.createElement(Switch, null, /* @__PURE__ */ React.createElement(Route, {
     path: "/story",
     exact: true,
-    component: () => /* @__PURE__ */ React.createElement(Home, null)
+    component: () => /* @__PURE__ */ React.createElement(Story, null)
   }), /* @__PURE__ */ React.createElement(Route, {
     path: "/",
     exact: true,
-    component: () => /* @__PURE__ */ React.createElement(Story, null)
+    component: () => /* @__PURE__ */ React.createElement(Home, null)
   }), /* @__PURE__ */ React.createElement(Route, {
     path: "/order",
     exact: true,
