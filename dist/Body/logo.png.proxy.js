@@ -1,1 +1,0 @@
-export default "/dist/Body/logo.png";

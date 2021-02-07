@@ -1,0 +1,1 @@
+export default "/dist/Home/background.jpg";

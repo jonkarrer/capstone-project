@@ -1,5 +1,5 @@
 import React from "../../_snowpack/pkg/react.js";
-import MobileBody from "../Body/MobileBody.js";
+import MobileBody from "./MobileBody.js";
 import "./Home.css.proxy.js";
 export default function Home() {
   return /* @__PURE__ */ React.createElement("div", {

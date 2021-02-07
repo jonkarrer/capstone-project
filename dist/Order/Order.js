@@ -9,6 +9,10 @@ export default function Order() {
   const [veganButton, setVegan] = useState(false);
   const [paleoButton, setPaleo] = useState(false);
   const [bulkButton, setBulk] = useState(false);
+  const [rotateBreakfast, setRotateBr] = useState("0");
+  const [rotateVegan, setRotateVeg] = useState("0");
+  const [rotatePaleo, setRotatePal] = useState("0");
+  const [rotateBulk, setRotateBulk] = useState("0");
   const renderBreakfastItems = () => {
     if (breakfastButton === true) {
       return /* @__PURE__ */ React.createElement(React.Fragment, null, firstMenu.breakfast.map((object) => /* @__PURE__ */ React.createElement(MenuItem, {
@@ -65,40 +69,56 @@ export default function Order() {
     className: "food-menu"
   }, /* @__PURE__ */ React.createElement("div", {
     className: "catagory-block",
-    onClick: () => setBreakfast(!breakfastButton)
+    onClick: () => {
+      setBreakfast(!breakfastButton);
+      breakfastButton ? setRotateBr("0") : setRotateBr("180");
+    }
   }, /* @__PURE__ */ React.createElement("div", {
     className: "catagory-title"
   }, /* @__PURE__ */ React.createElement("h1", null, "Breakfast"), /* @__PURE__ */ React.createElement("br", null), /* @__PURE__ */ React.createElement("p", null, "Save the time for coffee.")), /* @__PURE__ */ React.createElement("div", {
     className: "catagory-button"
   }, /* @__PURE__ */ React.createElement("div", {
-    id: "dropdown-button"
+    id: "dropdown-button",
+    style: {transform: `rotate(${rotateBreakfast}deg)`}
   }, "V"))), renderBreakfastItems(), /* @__PURE__ */ React.createElement("div", {
     className: "catagory-block",
-    onClick: () => setVegan(!veganButton)
+    onClick: () => {
+      setVegan(!veganButton);
+      veganButton ? setRotateVeg("0") : setRotateVeg("180");
+    }
   }, /* @__PURE__ */ React.createElement("div", {
     className: "catagory-title"
   }, /* @__PURE__ */ React.createElement("h1", null, "Vegan"), /* @__PURE__ */ React.createElement("br", null), /* @__PURE__ */ React.createElement("p", null, "Life starts with plants.")), /* @__PURE__ */ React.createElement("div", {
     className: "catagory-button"
   }, /* @__PURE__ */ React.createElement("div", {
-    id: "dropdown-button"
+    id: "dropdown-button",
+    style: {transform: `rotate(${rotateVegan}deg)`}
   }, "V"))), renderVeganItems(), /* @__PURE__ */ React.createElement("div", {
     className: "catagory-block",
-    onClick: () => setPaleo(!paleoButton)
+    onClick: () => {
+      setPaleo(!paleoButton);
+      paleoButton ? setRotatePal("0") : setRotatePal("180");
+    }
   }, /* @__PURE__ */ React.createElement("div", {
     className: "catagory-title"
   }, /* @__PURE__ */ React.createElement("h1", null, "Low-Glycemic/Paleo"), /* @__PURE__ */ React.createElement("br", null), /* @__PURE__ */ React.createElement("p", null, "Fuel the body with what it needs.")), /* @__PURE__ */ React.createElement("div", {
     className: "catagory-button"
   }, /* @__PURE__ */ React.createElement("div", {
-    id: "dropdown-button"
+    id: "dropdown-button",
+    style: {transform: `rotate(${rotatePaleo}deg)`}
   }, "V"))), renderPaleoItems(), /* @__PURE__ */ React.createElement("div", {
     className: "catagory-block",
-    onClick: () => setBulk(!bulkButton)
+    onClick: () => {
+      setBulk(!bulkButton);
+      bulkButton ? setRotateBulk("0") : setRotateBulk("180");
+    }
   }, /* @__PURE__ */ React.createElement("div", {
     className: "catagory-title"
   }, /* @__PURE__ */ React.createElement("h1", null, "Buy in Bulk"), /* @__PURE__ */ React.createElement("br", null), /* @__PURE__ */ React.createElement("p", null, "Pounds of select items")), /* @__PURE__ */ React.createElement("div", {
     className: "catagory-button"
   }, /* @__PURE__ */ React.createElement("div", {
-    id: "dropdown-button"
+    id: "dropdown-button",
+    style: {transform: `rotate(${rotateBulk}deg)`}
   }, "V"))), renderBulkItems()), /* @__PURE__ */ React.createElement(MobileCart, null)));
 }
 function MenuItem({itemName, itemDescription, itemPrice, itemPicture}) {

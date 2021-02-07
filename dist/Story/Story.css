@@ -41,8 +41,11 @@
   text-align: center;
   width: 80%;
   margin: 0 auto;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding: 20px;
   font-size: 1.5em;
   font-weight: 300;
+  border: white  solid thick;
+  font-weight: 400;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
