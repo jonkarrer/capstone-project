@@ -10,14 +10,14 @@
 
 ## Install git-hub, gh-pages, webpack
 
-1. set git repo normally
-2. install gh-pages plugin
+1. Set git-hub repository normally
+2. Install gh-pages plugin
 
     ```bash
     npm install gh-pages
     ```
 
-3. instal webpack plugin
+3. Install webpack plugin
 
     ```bash
     npm install --save-dev @snowpack/plugin-webpack
@@ -25,12 +25,23 @@
 
 ## Adjust package.json
 
-4. check dependencies in package.json. "gh-pages" should appear
-6. add "homepage": "http://jonkarrer.github.io/capstone-project", above scripts in package.json
-7. add  "scripts": {
+1. check dependencies in package.json. "gh-pages" should appear
+2. in global package.json add this line
+
+    ```javascript
+    "homepage": "http://jonkarrer.github.io/capstone-project" 
+    ```
+
+3. next add
+
+    ```javascript
+    "scripts": {
           "predeploy": "npx snowpack build",
-          "deploy": "gh-pages -d build",
-8.  in snowpack config, build options, 
+          "deploy": "gh-pages -d build"
+    }
+    ```
+
+4.  in snowpack config, build options, 
             add baseUrl: '/capstone-project'.
       
       [x] in snowpack-config, add '@snowpack/plugin-webpack' to plugins
