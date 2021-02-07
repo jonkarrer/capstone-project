@@ -5,22 +5,25 @@
     ```bash
     npx create-snowpack-app react-snowpack --template @snowpack/app-template-react-typescript
     ```
-## Install git-hub and gh-pages
+## Install git-hub, gh-pages, webpack
     2. set git repo normally
     3. install gh-pages plugin
     ```bash
     npm install gh-pages
     ```
     4. check dependencies in package.json. "gh-pages" should appear
+    5. instal webpack plugin
+    ```bash
+    npm install --save-dev @snowpack/plugin-webpack
+    ```
 ## Adjust package.json
-    5. add "homepage": "http://jonkarrer.github.io/capstone-project", above scripts in package.json
-    6. add  "scripts": {
+    6. add "homepage": "http://jonkarrer.github.io/capstone-project", above scripts in package.json
+    7. add  "scripts": {
           "predeploy": "npx snowpack build",
           "deploy": "gh-pages -d build",
-      [x]  in snowpack config, build options, 
+    8.  in snowpack config, build options, 
             add baseUrl: '/capstone-project'.
-    [x] install webpack plugin
-      [x] npm install --save-dev @snowpack/plugin-webpack
+      
       [x] in snowpack-config, add '@snowpack/plugin-webpack' to plugins
     [x] Double check all dependencies are there. 
     [x] use "npm run deploy" to push project to gh-pages for test.
