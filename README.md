@@ -210,3 +210,13 @@ fix cart button with justify start property.
 1. Created a new file to hold the context api framework. TotalContext.tsx
 2. The subtotal is calculated by summing all item's totals. The totals need to dynamically change with the add and subtract buttons. I use a reduce function on that global shopping cart array to set subtotal.
 3. This Context API allows me to update the state of the subtotal. I pass the global shopcartarr, the subtotal useState variable, and the function to update the subtotal usestate.
+
+## Up Next
+
+1. Make dropdown arrows rotate
+2. Get images to render on gh-pages
+3. Create desktop site
+4. Fix routing issue on page load. Goes to story first
+5. Make an Faq page
+6. Make a Home button in navbar
+7. Add more design to the Home and story pages.
