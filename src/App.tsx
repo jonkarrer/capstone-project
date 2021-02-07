@@ -15,12 +15,11 @@ function App({}: AppProps) {
       <Router>
         <Navbar/>
         <Switch>
-          <Route path='/story' exact component={() => <Home />} />
-          <Route path='/' exact component={() => <Story />}/>
+          <Route path='/story' exact component={() => <Story />}/>
+          <Route path='/' exact component={() => <Home />} />
           <Route path='/order' exact component={() => <Order />}/>
           <Story />
         </Switch>
-        
       </Router>
     
     </div>
