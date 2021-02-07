@@ -1,5 +1,9 @@
 # Nu Leaf Meal Prep Company
 
+## Summary
+
+This is a mock webapp that I drafted to run my business. This READ.Md is used to describe the process, and some of the unique quirks I encountered for learning purposes. I used this project to enhance my React.js, Typescript, and Snowpack understandings, as well as having a functional website.
+
 ## Create react with snopack development
 
 1. install snowpack with typescript template
