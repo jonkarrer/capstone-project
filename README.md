@@ -69,21 +69,21 @@ npm run deploy
 1. What happens on scroll
 
     ```javascript
-        const [navbarPosition, setNavbar] = useState('0');
-        const [scrollPosition, setPosition] = useState(0);
-        useEffect(() => {
-            const onScroll = () => {
-            const currentPosition = window.pageYOffset;
-            if (scrollPosition > currentPosition || scrollPosition < 10) {
-                setNavbar('0');
-            } else {
-                setNavbar('-100px');
-            }
-            setPosition(currentPosition);
-            }
-            window.addEventListener('scroll', onScroll)
-            return () => window.removeEventListener('scroll', onScroll);
-        }, [scrollPosition]);
+    const [navbarPosition, setNavbar] = useState('0');
+    const [scrollPosition, setPosition] = useState(0);
+    useEffect(() => {
+        const onScroll = () => {
+        const currentPosition = window.pageYOffset;
+        if (scrollPosition > currentPosition || scrollPosition < 10) {
+            setNavbar('0');
+        } else {
+            setNavbar('-100px');
+        }
+        setPosition(currentPosition);
+        }
+        window.addEventListener('scroll', onScroll)
+        return () => window.removeEventListener('scroll', onScroll);
+    }, [scrollPosition]);
     ```
 
 2. Make a reactive style onto Navbar.tsx with
