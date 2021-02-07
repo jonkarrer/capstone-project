@@ -44,6 +44,9 @@
   margin-right: 10px;
   font-size: 20px;
 }
+.Order #dropdown-button {
+  height: 20px;
+}
 .Order #dropdown-button:hover {
   cursor: pointer;
   color: greenyellow;

@@ -11,6 +11,10 @@ export default function Order() {
   const [veganButton, setVegan] = useState(false);
   const [paleoButton, setPaleo] = useState(false);
   const [bulkButton, setBulk] = useState(false);
+  const [rotateBreakfast, setRotateBr] = useState('0');
+  const [rotateVegan, setRotateVeg] = useState('0');
+  const [rotatePaleo, setRotatePal] = useState('0');
+  const [rotateBulk, setRotateBulk] = useState('0');
   const renderBreakfastItems = () => {
     if (breakfastButton === true) {
       return (
@@ -62,43 +66,43 @@ export default function Order() {
         <h1 id="heading">This Weeks Menu</h1>
       </section>
       <section className="food-menu">
-        <div className="catagory-block" onClick={() => setBreakfast(!breakfastButton)}>
+        <div className="catagory-block" onClick={() => {setBreakfast(!breakfastButton); setRotateBr('180');}}>
           <div className="catagory-title">
             <h1>Breakfast</h1><br/>
             <p>Save the time for coffee.</p>
           </div>
           <div className="catagory-button">
-            <div id="dropdown-button">V</div>
+            <div id="dropdown-button" style={{transform: `rotate(${rotateBreakfast}deg)`}}>V</div>
           </div>
        </div>
         {renderBreakfastItems()}
-       <div className="catagory-block" onClick={() => setVegan(!veganButton)}>
+       <div className="catagory-block" onClick={() => {setVegan(!veganButton); setRotateVeg('180');}}>
           <div className="catagory-title">
             <h1>Vegan</h1><br/>
             <p>Life starts with plants.</p>
           </div>
           <div className="catagory-button">
-            <div id="dropdown-button">V</div>
+            <div id="dropdown-button" style={{transform: `rotate(${rotateVegan}deg)`}}>V</div>
           </div>
        </div>
         {renderVeganItems()}
-       <div className="catagory-block" onClick={() => setPaleo(!paleoButton)}>
+       <div className="catagory-block" onClick={() => {setPaleo(!paleoButton); setRotatePal('180');}}>
           <div className="catagory-title">
             <h1>Low-Glycemic/Paleo</h1><br/>
             <p>Fuel the body with what it needs.</p>
           </div>
           <div className="catagory-button">
-            <div id="dropdown-button">V</div>
+            <div id="dropdown-button" style={{transform: `rotate(${rotatePaleo}deg)`}}>V</div>
           </div>
        </div>
         {renderPaleoItems()}
-       <div className="catagory-block" onClick={() => setBulk(!bulkButton)}>
+       <div className="catagory-block" onClick={() => {setBulk(!bulkButton); setRotateBulk('180');}}>
           <div className="catagory-title">
             <h1>Buy in Bulk</h1><br/>
             <p>Pounds of select items</p>
           </div>
           <div className="catagory-button">
-            <div id="dropdown-button">V</div>
+            <div id="dropdown-button"style={{transform: `rotate(${rotateBulk}deg)`}}>V</div>
           </div>
        </div>
        {renderBulkItems()}
