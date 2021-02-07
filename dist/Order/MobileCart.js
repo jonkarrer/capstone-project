@@ -1,5 +1,5 @@
-import React, {useState} from "../../../_snowpack/pkg/react.js";
-import {useArr, updateSubTotal, useSubTotal} from "../TotalContext.js";
+import React, {useState} from "../../_snowpack/pkg/react.js";
+import {useArr, updateSubTotal, useSubTotal} from "./TotalContext.js";
 export default function MobileCart() {
   const [cartState, setCartState] = useState("toggle-off");
   const toggleFunction = () => {
@@ -50,12 +50,14 @@ const ItemizedList = ({index, itemCount, item, itemCost}) => {
     className: "minus-butt",
     onClick: updateTotal
   }, /* @__PURE__ */ React.createElement("div", {
-    onClick: subCount
+    onClick: subCount,
+    id: "cart-sub-butt"
   }, "\u23E4")), /* @__PURE__ */ React.createElement("div", null, "x", currentCount), /* @__PURE__ */ React.createElement("div", {
     className: "plus-butt",
     onClick: updateTotal
   }, /* @__PURE__ */ React.createElement("div", {
-    onClick: addCount
+    onClick: addCount,
+    id: "cart-add-butt"
   }, "+"))), /* @__PURE__ */ React.createElement("div", {
     className: "item"
   }, item), /* @__PURE__ */ React.createElement("div", {
@@ -72,49 +74,12 @@ const renderItemizedList = () => {
   })));
 };
 const SubTotal = () => {
-  const currentCart = useArr();
   const currentSubTotal = useSubTotal();
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     className: "subtotal"
   }, "SubTotal: $ ", currentSubTotal), /* @__PURE__ */ React.createElement("div", {
     className: "tax"
-  }, "Tax : $ ", currentSubTotal * 0.1), /* @__PURE__ */ React.createElement("div", {
+  }, "Tax : $ ", (currentSubTotal * 0.1).toFixed(2)), /* @__PURE__ */ React.createElement("div", {
     className: "total"
-  }, "Total : $ ", currentSubTotal * 0.1 + currentSubTotal), "(Click Submit Order to continue)");
-};
-export const ExpandMenuItem = ({itemName, itemDescription, itemPrice, itemPicture, children, addToCart}) => {
-  const currentCart = useArr();
-  const [orderCounter, setCounter] = useState(1);
-  return /* @__PURE__ */ React.createElement("div", {
-    className: "ExpandMenuItem"
-  }, children, /* @__PURE__ */ React.createElement("div", {
-    className: "item-picture",
-    style: {backgroundImage: `url(${itemPicture})`}
-  }), /* @__PURE__ */ React.createElement("div", {
-    className: "item-name"
-  }, /* @__PURE__ */ React.createElement("h2", null, itemName, " ", `$${itemPrice}`)), /* @__PURE__ */ React.createElement("div", {
-    className: "item-description"
-  }, /* @__PURE__ */ React.createElement("span", null, itemDescription)), /* @__PURE__ */ React.createElement("div", {
-    className: "item-cart"
-  }, /* @__PURE__ */ React.createElement("div", {
-    className: "minus-butt",
-    onClick: () => setCounter(orderCounter - 1)
-  }, "\u23E4"), /* @__PURE__ */ React.createElement("div", {
-    className: "number-counter"
-  }, orderCounter), /* @__PURE__ */ React.createElement("div", {
-    className: "plus-butt",
-    onClick: () => setCounter(orderCounter + 1)
-  }, "+")), /* @__PURE__ */ React.createElement("div", {
-    className: "add-to-cart",
-    onClick: () => {
-      const cartObject = {
-        itemCount: orderCounter,
-        item: itemName,
-        itemCost: itemPrice,
-        index: currentCart.length,
-        key: currentCart.length
-      };
-      currentCart.push(cartObject);
-    }
-  }, addToCart));
+  }, "Total : $ ", (currentSubTotal * 0.1 + currentSubTotal).toFixed(2)), "(Click Submit Order to continue)");
 };

@@ -1,8 +1,8 @@
 import React, {useState} from "../../_snowpack/pkg/react.js";
-import MobileCart, {ExpandMenuItem} from "./MobileCart/MobileCart.js";
+import MobileCart from "./MobileCart.js";
 import "./Order.css.proxy.js";
 import menuDataBase from "../lib/menuDataBase.js";
-import {TotalProvider} from "./TotalContext.js";
+import {TotalProvider, useArr} from "./TotalContext.js";
 const firstMenu = menuDataBase["menuOne"];
 export default function Order() {
   const [breakfastButton, setBreakfast] = useState(false);
@@ -136,3 +136,39 @@ function MenuItem({itemName, itemDescription, itemPrice, itemPicture}) {
     id: "price"
   }, "$", itemPrice))));
 }
+const ExpandMenuItem = ({itemName, itemDescription, itemPrice, itemPicture, children, addToCart}) => {
+  const currentCart = useArr();
+  const [orderCounter, setCounter] = useState(1);
+  return /* @__PURE__ */ React.createElement("div", {
+    className: "ExpandMenuItem"
+  }, children, /* @__PURE__ */ React.createElement("div", {
+    className: "item-picture",
+    style: {backgroundImage: `url(${itemPicture})`}
+  }), /* @__PURE__ */ React.createElement("div", {
+    className: "item-name"
+  }, /* @__PURE__ */ React.createElement("h2", null, itemName, " ", `$${itemPrice}`)), /* @__PURE__ */ React.createElement("div", {
+    className: "item-description"
+  }, /* @__PURE__ */ React.createElement("span", null, itemDescription)), /* @__PURE__ */ React.createElement("div", {
+    className: "item-cart"
+  }, /* @__PURE__ */ React.createElement("div", {
+    className: "minus-butt",
+    onClick: () => setCounter(orderCounter - 1)
+  }, "\u23E4"), /* @__PURE__ */ React.createElement("div", {
+    className: "number-counter"
+  }, orderCounter), /* @__PURE__ */ React.createElement("div", {
+    className: "plus-butt",
+    onClick: () => setCounter(orderCounter + 1)
+  }, "+")), /* @__PURE__ */ React.createElement("div", {
+    className: "add-to-cart",
+    onClick: () => {
+      const cartObject = {
+        itemCount: orderCounter,
+        item: itemName,
+        itemCost: itemPrice,
+        index: currentCart.length,
+        key: currentCart.length
+      };
+      currentCart.push(cartObject);
+    }
+  }, addToCart));
+};

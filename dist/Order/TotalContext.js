@@ -2,6 +2,7 @@ import React, {useContext, useState} from "../../_snowpack/pkg/react.js";
 const TotalContext = React.createContext();
 const updateContext = React.createContext();
 const subTotalContext = React.createContext();
+const shopCartItems = [];
 export function useArr() {
   return useContext(TotalContext);
 }
@@ -11,7 +12,6 @@ export function useSubTotal() {
 export function updateSubTotal() {
   return useContext(updateContext);
 }
-const shopCartItems = [];
 export function TotalProvider({children}) {
   const [subTotal, setSubTotal] = useState();
   const changeSubTotal = () => {
