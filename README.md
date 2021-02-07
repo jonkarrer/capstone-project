@@ -2,31 +2,35 @@
 
 ## Create react with snopack development
 
-    1. install snowpack with typescript template
+1. install snowpack with typescript template
+
     ```bash
     npx create-snowpack-app react-snowpack --template @snowpack/app-template-react-typescript
     ```
 
 ## Install git-hub, gh-pages, webpack
 
-    set git repo normally
-    install gh-pages plugin
-    
+1. set git repo normally
+2. install gh-pages plugin
+
     ```bash
     npm install gh-pages
     ```
-    4. check dependencies in package.json. "gh-pages" should appear
-    5. instal webpack plugin
+
+3. instal webpack plugin
+
     ```bash
     npm install --save-dev @snowpack/plugin-webpack
     ```
-    
+
 ## Adjust package.json
-    6. add "homepage": "http://jonkarrer.github.io/capstone-project", above scripts in package.json
-    7. add  "scripts": {
+
+4. check dependencies in package.json. "gh-pages" should appear
+6. add "homepage": "http://jonkarrer.github.io/capstone-project", above scripts in package.json
+7. add  "scripts": {
           "predeploy": "npx snowpack build",
           "deploy": "gh-pages -d build",
-    8.  in snowpack config, build options, 
+8.  in snowpack config, build options, 
             add baseUrl: '/capstone-project'.
       
       [x] in snowpack-config, add '@snowpack/plugin-webpack' to plugins
