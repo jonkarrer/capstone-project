@@ -1,13 +1,17 @@
-#My Meal Prep Company
+# My Meal Prep Company
 
-## Create react with snopack development. 
+## Create react with snopack development
+
     1. install snowpack with typescript template
     ```bash
     npx create-snowpack-app react-snowpack --template @snowpack/app-template-react-typescript
     ```
+
 ## Install git-hub, gh-pages, webpack
-    2. set git repo normally
-    3. install gh-pages plugin
+
+    set git repo normally
+    install gh-pages plugin
+    
     ```bash
     npm install gh-pages
     ```
@@ -16,6 +20,7 @@
     ```bash
     npm install --save-dev @snowpack/plugin-webpack
     ```
+    
 ## Adjust package.json
     6. add "homepage": "http://jonkarrer.github.io/capstone-project", above scripts in package.json
     7. add  "scripts": {
