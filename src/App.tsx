@@ -15,8 +15,8 @@ function App({}: AppProps) {
       <Router>
         <Navbar/>
         <Switch>
-          <Route path='/' exact component={() => <Home />} />
-          <Route path='/story' exact component={() => <Story />}/>
+          <Route path='/story' exact component={() => <Home />} />
+          <Route path='/' exact component={() => <Story />}/>
           <Route path='/order' exact component={() => <Order />}/>
           <Story />
         </Switch>

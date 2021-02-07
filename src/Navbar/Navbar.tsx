@@ -24,7 +24,7 @@ function Navbar() {
       <section className="links">
         <Link id="order" to="/order"><h1>Order</h1></Link>
         <Link id="story" to="/story"><h1>Story</h1></Link>
-        <Link className="faq" to="/"><h1>FAQs</h1></Link>
+        <Link className="home" to="/"><h1>Home</h1></Link>
       </section>
     </div>
     </React.Fragment>

@@ -107,7 +107,6 @@ export default function Order() {
     </div>
     </TotalProvider>
   )}
-  
 interface MenuProps {
   itemName: string;
   itemDescription: string;
