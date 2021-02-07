@@ -66,7 +66,7 @@ export default function Order() {
         <h1 id="heading">This Weeks Menu</h1>
       </section>
       <section className="food-menu">
-        <div className="catagory-block" onClick={() => {setBreakfast(!breakfastButton); setRotateBr('180');}}>
+        <div className="catagory-block" onClick={() => {setBreakfast(!breakfastButton); breakfastButton ? setRotateBr('0') : setRotateBr('180');}}>
           <div className="catagory-title">
             <h1>Breakfast</h1><br/>
             <p>Save the time for coffee.</p>
@@ -76,7 +76,7 @@ export default function Order() {
           </div>
        </div>
         {renderBreakfastItems()}
-       <div className="catagory-block" onClick={() => {setVegan(!veganButton); setRotateVeg('180');}}>
+       <div className="catagory-block" onClick={() => {setVegan(!veganButton); veganButton ? setRotateVeg('0') : setRotateVeg('180');}}>
           <div className="catagory-title">
             <h1>Vegan</h1><br/>
             <p>Life starts with plants.</p>
@@ -86,7 +86,7 @@ export default function Order() {
           </div>
        </div>
         {renderVeganItems()}
-       <div className="catagory-block" onClick={() => {setPaleo(!paleoButton); setRotatePal('180');}}>
+       <div className="catagory-block" onClick={() => {setPaleo(!paleoButton); paleoButton ? setRotatePal('0') : setRotatePal('180');}}>
           <div className="catagory-title">
             <h1>Low-Glycemic/Paleo</h1><br/>
             <p>Fuel the body with what it needs.</p>
@@ -96,7 +96,7 @@ export default function Order() {
           </div>
        </div>
         {renderPaleoItems()}
-       <div className="catagory-block" onClick={() => {setBulk(!bulkButton); setRotateBulk('180');}}>
+       <div className="catagory-block" onClick={() => {setBulk(!bulkButton); bulkButton ? setRotateBulk('0') : setRotateBulk('180');}}>
           <div className="catagory-title">
             <h1>Buy in Bulk</h1><br/>
             <p>Pounds of select items</p>
