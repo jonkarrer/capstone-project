@@ -44,14 +44,18 @@
   padding: 20px;
   font-size: 1.5em;
   font-weight: 300;
+  border: white  solid thick;
+  margin-top: 20px;
+  font-weight: 400;
 }
 .MobileBody section button {
   padding: 10px;
-  width: 40%;
+  width: 50%;
   min-width: 100px;
   max-width: 250px;
-  font-size: 1em;
+  font-size: 1.3em;
   margin: 10px;
+  margin-top: 20px;
 }
 .MobileBody section:nth-child(even) {
   background: #C6DE75;
