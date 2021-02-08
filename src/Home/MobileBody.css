@@ -38,15 +38,11 @@
   text-shadow: grey 0px 4px;
 }
 .MobileBody section p {
-  text-align: center;
-  width: 80%;
-  margin: 0 auto;
   padding: 20px;
   font-size: 1.5em;
-  font-weight: 300;
+  font-weight: 400;
   border: white  solid thick;
   margin-top: 20px;
-  font-weight: 400;
 }
 .MobileBody section button {
   padding: 10px;
