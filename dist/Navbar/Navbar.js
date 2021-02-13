@@ -24,13 +24,13 @@ function Navbar() {
     className: "links"
   }, /* @__PURE__ */ React.createElement(Link, {
     className: "home",
-    to: "https://jonkarrer.github.io/capstone-project/"
+    to: ""
   }, /* @__PURE__ */ React.createElement("h1", null, "Home")), /* @__PURE__ */ React.createElement(Link, {
     id: "order",
-    to: "https://jonkarrer.github.io/capstone-project/order"
+    to: "/order"
   }, /* @__PURE__ */ React.createElement("h1", null, "Order")), /* @__PURE__ */ React.createElement(Link, {
     id: "faqs",
-    to: "https://jonkarrer.github.io/capstone-project/faqs"
+    to: "/faqs"
   }, /* @__PURE__ */ React.createElement("h1", null, "FAQs")))));
 }
 export default withRouter(Navbar);
