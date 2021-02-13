@@ -8,7 +8,7 @@ import FAQs from "./FAQs/FAQs.js";
 function App({}) {
   return /* @__PURE__ */ React.createElement("div", {
     className: "App"
-  }, /* @__PURE__ */ React.createElement(Router, null, /* @__PURE__ */ React.createElement(Navbar, null), /* @__PURE__ */ React.createElement(Switch, null, /* @__PURE__ */ React.createElement(Route, {
+  }, /* @__PURE__ */ React.createElement(Router, null, /* @__PURE__ */ React.createElement(Navbar, null), /* @__PURE__ */ React.createElement(Home, null), /* @__PURE__ */ React.createElement(Switch, null, /* @__PURE__ */ React.createElement(Route, {
     path: "/",
     exact: true,
     component: () => /* @__PURE__ */ React.createElement(Home, null)
