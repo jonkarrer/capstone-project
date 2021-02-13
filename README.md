@@ -234,9 +234,7 @@ fix cart button with justify start property.
 ## Up Next
 
 1. Make dropdown arrows rotate
-2. Get images to render on gh-pages
+2. Get images to render on gh-pages in order page
 3. Create desktop site
-4. Fix routing issue on page load. Goes to story first
-5. Make an Faq page
-6. Make a Home button in navbar
-7. Add more design to the Home and story pages.
+4. Make an Faq page
+5. Add more design to the Home page.
