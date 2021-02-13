@@ -24,7 +24,7 @@ function Navbar() {
     className: "links"
   }, /* @__PURE__ */ React.createElement(Link, {
     className: "home",
-    to: ""
+    to: "/"
   }, /* @__PURE__ */ React.createElement("h1", null, "Home")), /* @__PURE__ */ React.createElement(Link, {
     id: "order",
     to: "/order"
