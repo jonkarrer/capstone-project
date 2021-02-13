@@ -9,7 +9,7 @@ function App({}) {
   return /* @__PURE__ */ React.createElement("div", {
     className: "App"
   }, /* @__PURE__ */ React.createElement(Router, null, /* @__PURE__ */ React.createElement(Navbar, null), /* @__PURE__ */ React.createElement(Switch, null, /* @__PURE__ */ React.createElement(Route, {
-    path: "https://jonkarrer.github.io/capstone-project",
+    path: "https://jonkarrer.github.io/capstone-project/",
     exact: true,
     component: () => /* @__PURE__ */ React.createElement(Home, null)
   }), /* @__PURE__ */ React.createElement(Route, {
