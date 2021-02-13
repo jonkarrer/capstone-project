@@ -22,9 +22,9 @@ function Navbar() {
     <React.Fragment>
       <div className="NavBar" style={{top:`${navbarPosition}`}}>
         <section className="links">
-          <Link className="home" to="https://jonkarrer.github.io/capstone-project/"><h1>Home</h1></Link>
-          <Link id="order" to="https://jonkarrer.github.io/capstone-project/order"><h1>Order</h1></Link>
-          <Link id="faqs" to="https://jonkarrer.github.io/capstone-project/faqs"><h1>FAQs</h1></Link>
+          <Link className="home" to=""><h1>Home</h1></Link>
+          <Link id="order" to="/order"><h1>Order</h1></Link>
+          <Link id="faqs" to="/faqs"><h1>FAQs</h1></Link>
         </section>
       </div>
     </React.Fragment>

@@ -15,9 +15,9 @@ function App({}: AppProps) {
       <Router>
         <Navbar/>
         <Switch>
-          <Route path='https://jonkarrer.github.io/capstone-project/' exact component={() => <Home />} />
-          <Route path='https://jonkarrer.github.io/capstone-project/order' exact component={() => <Order />}/>
-          <Route path='https://jonkarrer.github.io/capstone-project/faqs' exact component={() => <FAQs />}/>
+          <Route path='' exact component={() => <Home />} />
+          <Route path='/order' exact component={() => <Order />}/>
+          <Route path='/faqs' exact component={() => <FAQs />}/>
         </Switch>
       </Router>
     </div>
