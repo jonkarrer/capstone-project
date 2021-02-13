@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from './Navbar/Navbar';
 import Home from './Home/Home';
 import Order from './Order/Order';
+import FAQs from './FAQs/FAQs';
 
 interface AppProps {}
 
@@ -14,8 +15,9 @@ function App({}: AppProps) {
       <Router>
         <Navbar/>
         <Switch>
-        <Route path='/' exact component={() => <Home />} />
+          <Route path='/' exact component={() => <Home />} />
           <Route path='/order' exact component={() => <Order />}/>
+          <Route path='/faqs' exact component={() => <FAQs />}/>
         </Switch>
       </Router>
     </div>
