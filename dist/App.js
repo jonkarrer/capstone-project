@@ -13,11 +13,11 @@ function App({}) {
     exact: true,
     component: () => /* @__PURE__ */ React.createElement(Home, null)
   }), /* @__PURE__ */ React.createElement(Route, {
-    path: "/order",
+    path: "https://jonkarrer.github.io/capstone-project/order",
     exact: true,
     component: () => /* @__PURE__ */ React.createElement(Order, null)
   }), /* @__PURE__ */ React.createElement(Route, {
-    path: "/faqs",
+    path: "https://jonkarrer.github.io/capstone-project/faqs",
     exact: true,
     component: () => /* @__PURE__ */ React.createElement(FAQs, null)
   }))));
