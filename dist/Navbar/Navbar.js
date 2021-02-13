@@ -29,8 +29,8 @@ function Navbar() {
     id: "order",
     to: "/order"
   }, /* @__PURE__ */ React.createElement("h1", null, "Order")), /* @__PURE__ */ React.createElement(Link, {
-    id: "faq",
-    to: "/faq"
+    id: "faqs",
+    to: "/faqs"
   }, /* @__PURE__ */ React.createElement("h1", null, "FAQs")))));
 }
 export default withRouter(Navbar);

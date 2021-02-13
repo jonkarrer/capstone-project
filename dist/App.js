@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from "../_snowpack/pkg/react-rou
 import Navbar from "./Navbar/Navbar.js";
 import Home from "./Home/Home.js";
 import Order from "./Order/Order.js";
+import FAQs from "./FAQs/FAQs.js";
 function App({}) {
   return /* @__PURE__ */ React.createElement("div", {
     className: "App"
@@ -15,6 +16,10 @@ function App({}) {
     path: "/order",
     exact: true,
     component: () => /* @__PURE__ */ React.createElement(Order, null)
+  }), /* @__PURE__ */ React.createElement(Route, {
+    path: "/faqs",
+    exact: true,
+    component: () => /* @__PURE__ */ React.createElement(FAQs, null)
   }))));
 }
 export default App;
