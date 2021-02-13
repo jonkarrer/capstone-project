@@ -1,5 +1,5 @@
 {
-  "homepage": "http://jonkarrer.github.io/capstone-project/",
+  "homepage": "http://jonkarrer.github.io/capstone-project",
   "scripts": {
     "predeploy": "npx snowpack build",
     "deploy": "gh-pages -d build",
