@@ -211,6 +211,26 @@ fix cart button with justify start property.
 2. The subtotal is calculated by summing all item's totals. The totals need to dynamically change with the add and subtract buttons. I use a reduce function on that global shopping cart array to set subtotal.
 3. This Context API allows me to update the state of the subtotal. I pass the global shopcartarr, the subtotal useState variable, and the function to update the subtotal usestate.
 
+## Fix routing issue on page load
+
+1. in snowpack.config, look at the baseUrl.
+
+    ```javascript
+         buildOptions: {
+            baseUrl: '/capstone-project'
+        }
+    ```
+
+2. This needs to be the home route in react-router component. This is only necessary post deployment. GH pages needs this to be set as follows...
+
+    ```javascript
+        <Switch>
+            <Route path='/capstone-project' exact component={() => <Home />} />
+            <Route path='/capstone-project/order' exact component={() => <Order />}/>
+            <Route path='/capstone-project/faqs' exact component={() => <FAQs />}/>
+        </Switch>
+    ```
+
 ## Up Next
 
 1. Make dropdown arrows rotate
