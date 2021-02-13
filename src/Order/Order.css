@@ -63,7 +63,7 @@
   position: fixed;
   bottom: 0;
   transition: all 1s;
-  transform: translateY(70vh);
+  transform: translateY(69vh);
   padding-bottom: 30px;
 }
 #toggle-on {
