@@ -14,7 +14,7 @@ export default function MobileCart() {
       <div className="MobileCart" id={cartState}>
         <section onClick={updateSubTotal()}>
           <div id="cart-icon" onClick={toggleFunction}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="45" viewBox="0 0 24 24">
               <path 
               d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 
               1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 
