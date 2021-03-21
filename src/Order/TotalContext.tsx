@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 
 const TotalContext = React.createContext();
 const updateContext = React.createContext();
@@ -7,29 +7,36 @@ interface TotalProps {
   children: any;
 }
 const shopCartItems: any = [];
+
 export function useArr() {
-  return useContext(TotalContext)
+  return useContext(TotalContext);
 }
 export function useSubTotal() {
-  return useContext(subTotalContext)
+  return useContext(subTotalContext);
 }
 export function updateSubTotal() {
-  return useContext(updateContext)
+  return useContext(updateContext);
 }
 
-export function TotalProvider({ children }:TotalProps) {
-
+export function TotalProvider({ children }: TotalProps) {
   const [subTotal, setSubTotal] = useState();
   const changeSubTotal = () => {
-    setSubTotal(shopCartItems.reduce(function(a: number, b: { itemCost: number, itemCount: number }) { return a + b.itemCost * b.itemCount}, 0))
-  }
+    setSubTotal(
+      shopCartItems.reduce(function (
+        a: number,
+        b: { itemCost: number; itemCount: number }
+      ) {
+        return a + b.itemCost * b.itemCount;
+      })
+    );
+  };
   return (
     <TotalContext.Provider value={shopCartItems}>
       <subTotalContext.Provider value={subTotal}>
         <updateContext.Provider value={changeSubTotal}>
-        {children}
+          {children}
         </updateContext.Provider>
       </subTotalContext.Provider>
     </TotalContext.Provider>
-  )
+  );
 }

@@ -1,5 +1,5 @@
 .NavBar {
-  background-color: #728A45;
+  background-color: #728a45;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,10 +8,10 @@
   padding: 5px;
   position: fixed;
   top: 0;
-  transition: top .3s;
+  transition: top 0.3s;
 }
 .NavBar section {
-  background: #ECE7D9;
+  background: #ece7d9;
   display: grid;
   grid-template-columns: auto auto auto;
   border-radius: 2rem;

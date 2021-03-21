@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MobileBody from './MobileBody'
+import MobileBody from './MobileBody';
 import './Home.css';
 
 export default function Home() {
@@ -10,5 +10,5 @@ export default function Home() {
         <MobileBody />
       </React.Fragment>
     </div>
-  )
+  );
 }

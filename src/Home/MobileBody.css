@@ -2,7 +2,7 @@
   display: grid;
   grid-template-rows: auto auto auto auto;
   width: 100vw;
-  font-family:sans-serif;
+  font-family: sans-serif;
 }
 #image-block {
   background-size: cover;
@@ -52,7 +52,7 @@
   padding: 20px;
   font-size: 4vw;
   font-weight: 400;
-  border: white  solid thick;
+  border: white solid thick;
   margin-top: 10%;
 }
 @media screen and (min-width: 1000px) {
@@ -70,7 +70,7 @@
   margin-top: 10%;
 }
 .MobileBody section:nth-child(even) {
-  background: #C6DE75;
+  background: #c6de75;
 }
 .MobileBody section:nth-child(odd) {
   background: gainsboro;
